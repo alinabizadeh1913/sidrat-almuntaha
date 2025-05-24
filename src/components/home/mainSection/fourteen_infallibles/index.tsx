@@ -104,6 +104,7 @@ const FourteenInfallibles = ({
                 alt={seasons[1].slug}
                 fill
                 objectFit="cover"
+                className="mask-image"
               />
             </figure>
           </div>

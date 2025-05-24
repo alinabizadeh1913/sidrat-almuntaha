@@ -104,6 +104,7 @@ const SuspendedHouse = ({
                 alt={seasons[3].slug}
                 fill
                 objectFit="cover"
+                className="mask-image"
               />
             </figure>
           </div>

@@ -65,6 +65,7 @@ const SeasonsMobile = () => {
                   src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${season.imageUrls[0]}`}
                   objectFit="cover"
                   alt={season.slug}
+                  className="mask-image"
                   fill
                 />
               </div>

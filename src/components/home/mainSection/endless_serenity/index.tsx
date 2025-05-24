@@ -104,6 +104,7 @@ const EndlessSerenity = ({
                 alt={seasons[6].slug}
                 fill
                 objectFit="cover"
+                className="mask-image"
               />
             </figure>
           </div>

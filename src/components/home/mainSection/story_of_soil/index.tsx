@@ -104,6 +104,7 @@ const StoryOfSoil = ({
                 alt={seasons[0].slug}
                 fill
                 objectFit="cover"
+                className="mask-image"
               />
             </figure>
           </div>

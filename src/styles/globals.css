@@ -554,14 +554,8 @@ body {
 .mobile-card:nth-child(odd) .mobile-content {
   flex-direction: column;
 }
-.mobile-card:nth-child(odd) .mobile-image-container {
-  height: 500px;
-}
 .mobile-card:nth-child(even) .mobile-content {
   flex-direction: column-reverse;
-}
-.mobile-card:nth-child(even) .mobile-image-container {
-  height: 600px;
 }
 
 @media screen and (max-width: 450px) {

@@ -674,19 +674,11 @@ body {
     .mobile-content {
       flex-direction: column;
     }
-
-    .mobile-image-container {
-      height: 500px;
-    }
   }
 
   &:nth-child(even) {
     .mobile-content {
       flex-direction: column-reverse;
-    }
-
-    .mobile-image-container {
-      height: 600px;
     }
   }
 }

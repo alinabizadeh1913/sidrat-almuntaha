@@ -104,6 +104,7 @@ const EternalFall = ({
                 alt={seasons[5].slug}
                 fill
                 objectFit="cover"
+                className="mask-image"
               />
             </figure>
           </div>

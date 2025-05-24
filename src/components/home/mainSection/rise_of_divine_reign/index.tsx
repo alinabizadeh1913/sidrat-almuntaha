@@ -103,6 +103,7 @@ const RiseOfDivineReign = ({
                 alt={seasons[2].slug}
                 fill
                 objectFit="cover"
+                className="mask-image"
               />
             </figure>
           </div>

@@ -104,6 +104,7 @@ const DayOfJudgment = ({
                 alt={seasons[4].slug}
                 fill
                 objectFit="cover"
+                className="mask-image"
               />
             </figure>
           </div>
