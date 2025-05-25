@@ -126,11 +126,24 @@ const Header = () => {
       identifier="header"
       className="flex flex-col md:h-screen md:overflow-hidden relative z-20"
     >
-      <div className="noise hidden md:block"></div>
+      <div
+        className={`${
+          scrollCount == 2 || scrollCount == 4 || scrollCount == 6
+            ? "bg-[#fff]"
+            : "bg-body"
+        } noise hidden md:block`}
+      ></div>
       <section className="hidden md:block pb-9 md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[64px]">
         <HomeNavbar setIsMenuOpen={setIsMenuOpen} />
       </section>
-      <Grid zIndex={25} />
+      <Grid
+        zIndex={25}
+        dark={
+          scrollCount == 2 || scrollCount == 4 || scrollCount == 6
+            ? true
+            : false
+        }
+      />
       <MainMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <Seasons scrollCount={scrollCount} setScrollCount={setScrollCount} />
 

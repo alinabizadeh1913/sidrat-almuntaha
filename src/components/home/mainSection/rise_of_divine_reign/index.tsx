@@ -99,7 +99,7 @@ const RiseOfDivineReign = ({
               }}
             >
               <Image
-                src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[2].imageUrls[0]}`}
+                src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[2].imageUrls[1]}`}
                 alt={seasons[2].slug}
                 fill
                 objectFit="cover"

@@ -25,10 +25,17 @@ const Seasons = ({
             : scrollCount < 1
             ? "invisible opacity-0"
             : ""
-        } absolute bottom-0 left-0 right-0 w-full h-full z-[40] bg-body hidden md:block`}
+        } absolute bottom-0 left-0 right-0 w-full h-full z-[40] hidden md:block ${
+          scrollCount == 2 || scrollCount == 4 || scrollCount == 6
+            ? "bg-[#fff]"
+            : "bg-body"
+        }`}
       >
         <div className="noise hidden md:block"></div>
-        <Grid zIndex={45} />
+        <Grid
+          zIndex={45}
+          dark={scrollCount == 2 || scrollCount == 4 || scrollCount == 6}
+        />
 
         <StoryOfSoil
           scrollCount={scrollCount}

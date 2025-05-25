@@ -7,13 +7,13 @@ interface Point {
   y: number;
 }
 
-const GRID_SPACING = 110; // فاصله خطوط
-const RADIUS = 130; // شعاع تاثیر موس
-const BASE_OPACITY = 0.008;
-const ACTIVE_OPACITY = 0.313;
-const TRANSITION_TIME = 313; // ms
+const Grid = ({ zIndex, dark }: { zIndex: number; dark: boolean }) => {
+  const GRID_SPACING = 110; // فاصله خطوط
+  const RADIUS = 130; // شعاع تاثیر موس
+  const BASE_OPACITY = 0.008;
+  const ACTIVE_OPACITY = dark ? 0.6313 : 0.313;
+  const TRANSITION_TIME = 313; // ms
 
-const Grid = ({ zIndex }: { zIndex: number }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mouse, setMouse] = useState<Point | null>(null);
   const [windowSize, setWindowSize] = useState<{
@@ -63,7 +63,9 @@ const Grid = ({ zIndex }: { zIndex: number }) => {
           }
         }
 
-        ctx.strokeStyle = `rgba(255,255,255,${opacity})`;
+        ctx.strokeStyle = dark
+          ? `rgba(0,0,0,${opacity})`
+          : `rgba(255,255,255,${opacity})`;
 
         // Vertical line
         ctx.beginPath();

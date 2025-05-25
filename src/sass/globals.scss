@@ -8,22 +8,30 @@
 
 $body-background: #0c0c0c;
 $text-linear: linear-gradient(180deg, #fda52a, #fae3c3);
+$text-linear-dark: linear-gradient(180deg, #181512, #83817e);
 $text-primary: #fdc882;
 $text-secondary: #ead6b2;
 $text-tertiary: #ffe4bf;
 $text-quran: #fff;
+$text-primary-dark: #181512;
+$text-secondary-dark: #201c18;
+$text-tertiary-dark: #27221d;
 
 $bg-primary: #fdc882;
 $bg-secondary: #ead6b2;
 $bg-tertiary: #ffe4bf;
 $bg-linear: linear-gradient(135deg, #191919, #292b2e);
 $line-bg: linear-gradient(to bottom, #f8c279, #ac8654, #151616);
+$line-bg-dark: linear-gradient(to bottom, #181512, #585149, #fff);
 $bg-overlay-1: linear-gradient(to bottom, #0c0c0c00, #0c0c0c00, #0c0c0c);
 
 $button-hover: rgba(240, 197, 139, 0.05);
+$button-hover-dark: rgba(29, 25, 19, 0.05);
 
 $border-primary: #fff3e240;
 $border-secondary: #fdc882;
+$border-primary-dark: #b8aea4;
+$border-secondary-dark: #181512;
 
 // Utilities
 
@@ -37,6 +45,18 @@ $border-secondary: #fdc882;
 
 .text-tertiary {
   color: $text-tertiary;
+}
+
+.text-primary-dark {
+  color: $text-primary-dark;
+}
+
+.text-secondary-dark {
+  color: $text-secondary-dark;
+}
+
+.text-tertiary-dark {
+  color: $text-tertiary-dark;
 }
 
 .text-quran {
@@ -67,6 +87,10 @@ $border-secondary: #fdc882;
   background: $line-bg;
 }
 
+.line-bg-dark {
+  background: $line-bg-dark;
+}
+
 .bg-overlay-1 {
   background: $bg-overlay-1;
 }
@@ -83,8 +107,25 @@ $border-secondary: #fdc882;
   box-shadow: 0 4px 6px rgba(248, 194, 121, 0.15);
 }
 
+.button-hover-dark {
+  .icon-wrapper {
+    margin-inline-start: 16px;
+    transition: 0.1313s ease;
+  }
+}
+
+.button-hover-dark:hover {
+  background-color: $button-hover-dark;
+  box-shadow: 0 4px 6px rgba(39, 32, 21, 0.15);
+}
+
 @media screen and (min-width: 900px) {
   .button-hover:hover {
+    .icon-wrapper {
+      margin-inline-start: 24px;
+    }
+  }
+  .button-hover-dark:hover {
     .icon-wrapper {
       margin-inline-start: 24px;
     }
@@ -97,6 +138,14 @@ $border-secondary: #fdc882;
 
 .border-secondary {
   border: 1px solid $border-secondary;
+}
+
+.border-primary-dark {
+  border: 1px solid $border-primary-dark;
+}
+
+.border-secondary-dark {
+  border: 1px solid $border-secondary-dark;
 }
 
 .border-primary-2 {
@@ -389,7 +438,7 @@ body {
 }
 
 .special-container {
-  max-width: 1440px;
+  // max-width: 1440px;
   width: 100%;
   margin: auto;
 }
@@ -416,6 +465,12 @@ body {
   .gradient-text {
     color: transparent;
     background: $text-linear;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  .gradient-text-dark {
+    color: transparent;
+    background: $text-linear-dark;
     -webkit-background-clip: text;
     background-clip: text;
   }
@@ -523,7 +578,7 @@ body {
 }
 
 #main-section {
-  transition: 0.313s ease;
+  transition: 0.5s ease;
 }
 
 // Main Section Text
@@ -719,7 +774,7 @@ body {
   width: 100%;
   height: 100vh;
   z-index: -1;
-  background-color: #0c0c0c;
+  transition: 1s ease;
   &::after {
     background-image: url("/uploads/pictures/noise.png");
     content: "";
@@ -742,6 +797,10 @@ body {
     to bottom,
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.60),
     rgba(0, 0, 0, 0)
   );
   -webkit-mask-size: 100% 100%;
