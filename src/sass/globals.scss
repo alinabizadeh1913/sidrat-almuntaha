@@ -800,11 +800,29 @@ body {
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0.60),
+    rgba(0, 0, 0, 0.6),
     rgba(0, 0, 0, 0)
   );
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+}
+
+.scroll {
+  animation: scrolling 1.5s ease infinite;
+}
+
+@keyframes scrolling {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+// Loading
+#loading {
+  transition: opacity 0.35s 0.650s ease, visibility 0.35s 0.650s ease;
 }

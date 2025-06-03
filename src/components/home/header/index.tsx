@@ -128,7 +128,10 @@ const Header = () => {
     >
       <div
         className={`${
-          scrollCount == 2 || scrollCount == 4 || scrollCount == 6
+          scrollCount == 1 ||
+          scrollCount == 3 ||
+          scrollCount == 5 ||
+          scrollCount == 7
             ? "bg-[#fff]"
             : "bg-body"
         } noise hidden md:block`}
@@ -139,7 +142,10 @@ const Header = () => {
       <Grid
         zIndex={25}
         dark={
-          scrollCount == 2 || scrollCount == 4 || scrollCount == 6
+          scrollCount == 1 ||
+          scrollCount == 3 ||
+          scrollCount == 5 ||
+          scrollCount == 7
             ? true
             : false
         }
@@ -150,7 +156,7 @@ const Header = () => {
       <div className="w-full h-full flex pt-[60px] sm:pt-[80px] md:py-[36px]">
         <div
           id="header-wrapper"
-          className={`max-w-[1200px] w-full md:m-auto md:px-[48px] lg:px-[64px]`}
+          className={`max-w-[1280px] w-full md:m-auto md:px-[48px] lg:px-[64px]`}
         >
           {/* <div
             className={`glow-bofrder duration-500 delay-700 ease-out h-full`}
@@ -200,7 +206,7 @@ const Header = () => {
                   speed={30}
                   weight="regular"
                   lang={language}
-                  delay={randomDuration + 1000}
+                  delay={randomDuration + 1100}
                   className={`text-tertiary text-center ${
                     language == "en"
                       ? "my-4 md:my-5 lg:my-6 text-[22px] leading-[40px]"
@@ -218,17 +224,57 @@ const Header = () => {
                 <div
                   className={`${
                     isFinished
-                      ? "visible opacity-100 duration-200"
+                      ? "visible opacity-100 duration-200 scroll"
                       : "invisible opacity-0"
-                  } ease-in hidden md:block`}
+                  } ease-in hidden md:block text-tertiary`}
                 >
-                  <Down />
+                  <svg
+                    width="20"
+                    height="24"
+                    viewBox="0 0 16 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 1L8 19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M15 12L8 19L1 12"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
               </div>
             </section>
           </section>
         </div>
       </div>
+      {/* <section className="hidden md:block pb-9 md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[64px]">
+        <Section special>
+          <div className="w-full flex justify-center items-center pb-9">
+            <div
+              className={`w-[24px] h-[52px] border-[2px] border-[#ffe4bf] rounded-full p-[2px] flex justify-center ${
+                isFinished
+                  ? "visible opacity-100 duration-200"
+                  : "invisible opacity-0"
+              } ease-in`}
+            >
+              <div
+                className={`w-[16px] h-[16px] rounded-full bg-tertiary ${
+                  isFinished ? "scroll" : ""
+                }`}
+              ></div>
+            </div>
+          </div>
+        </Section>
+      </section> */}
     </Section>
   );
 };

@@ -27,6 +27,54 @@ export const BurgerMenu = () => {
   );
 };
 
+export const BarIcon = () => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-[22px] h-[22px] md:w-[24px] md:h-[24px]"
+    >
+      <rect
+        x="14.9"
+        y="0.9"
+        width="8.2"
+        height="8.2"
+        rx="1.1"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <rect
+        x="14.9"
+        y="14.9"
+        width="8.2"
+        height="8.2"
+        rx="1.1"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <rect
+        x="0.9"
+        y="0.9"
+        width="8.2"
+        height="8.2"
+        rx="1.1"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <rect
+        x="0.9"
+        y="14.9"
+        width="8.2"
+        height="8.2"
+        rx="1.1"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+    </svg>
+  );
+};
+
 export const Globe = () => {
   return (
     <svg

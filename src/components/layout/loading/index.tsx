@@ -58,52 +58,75 @@ const Loading = () => {
   }, [isLoadingShow, setRandomDuration]);
 
   return (
-    <Section
-      identifier="loading"
-      className={`${
-        isLoadingShow
-          ? "visible opacity-100"
-          : "invisible opacity-0 delay-[650ms]"
-      } w-full h-screen fixed z-[1000] top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-[#141414] duration-300`}
-    >
-      <div
-        className="absolute top-0 left-0 h-full bg-[#11110f]"
-        style={{
-          width: `${progress}%`,
-          transition: `width 0.313s ease`,
-        }}
-      ></div>
-      <div className="w-[160px] h-[200px] relative z-[1050]">
-        <Image
-          src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}
-          alt="logo"
-          fill
-          objectFit="cover"
+    <>
+      <Section
+        className={`fixed top-0 left-0 w-full h-full z-[1010] pt-9 pointer-events-none ${
+          isLoadingShow
+            ? "visible opacity-100"
+            : "invisible opacity-0 delay-[1200ms]"
+        }`}
+      >
+        <div className="relative w-full h-full flex justify-center">
+          <div
+            className={`absolute ${
+              isLoadingShow ? "top-[calc(50%-100px)]" : "top-[0px] delay-[650ms]"
+            } duration-500`}
+          >
+            <div
+              className={`${
+                isLoadingShow ? "w-[160px] h-[200px]" : "w-[48px] h-[56px] delay-[650ms]"
+              } relative z-[1050] duration-500`}
+            >
+              <Image
+                src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}
+                alt="logo"
+                fill
+                objectFit="cover"
+                style={{
+                  opacity: `${progress}%`,
+                  transition: `opacity 0.313s ease`,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section
+        identifier="loading"
+        className={`${
+          isLoadingShow
+            ? "visible opacity-100"
+            : "invisible opacity-0"
+        } w-full h-screen fixed z-[1000] top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-[#151515]`}
+      >
+        <div
+          className="absolute top-0 left-0 h-full bg-[#11110f]"
+          style={{
+            width: `${progress}%`,
+            transition: `width 0.313s ease`,
+          }}
+        ></div>
+
+        {/* <div className="flex mt-4 items-center">
+        <div
+          className="w-[320px] sm:w-[360px] md:w-[400px] lg:w-[440px] xl:w-[480px] h-[8px] rounded-md bg-[#1a1a1a] overflow-hidden flex"
           style={{
             opacity: `${progress}%`,
             transition: `opacity 0.313s ease`,
           }}
-        />
-      </div>
-      {/* <div className="flex mt-4 items-center">
+        >
           <div
-            className="w-[320px] sm:w-[360px] md:w-[400px] lg:w-[440px] xl:w-[480px] h-[8px] rounded-md bg-[#1a1a1a] overflow-hidden flex"
+            className="bg-tertiary"
             style={{
-              opacity: `${progress}%`,
-              transition: `opacity 0.313s ease`,
+              width: `${progress}%`,
+              height: "100%",
+              transition: "width 0.313s ease",
             }}
-          >
-            <div
-              className="bg-tertiary"
-              style={{
-                width: `${progress}%`,
-                height: "100%",
-                transition: "width 0.313s ease",
-              }}
-            ></div>
-          </div>
-        </div> */}
-    </Section>
+          ></div>
+        </div>
+      </div> */}
+      </Section>
+    </>
   );
 };
 

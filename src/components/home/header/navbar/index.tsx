@@ -2,7 +2,7 @@
 
 import Section from "@/components/layout/section";
 import Image from "next/image";
-import { BurgerMenu, Globe, Search } from "../../../../../public/svg";
+import { BarIcon } from "../../../../../public/svg";
 import { useEffect, useState } from "react";
 import ChangeLanguage from "./language";
 import settingsData from "@/database/settings.json";
@@ -51,7 +51,7 @@ const HomeNavbar = ({
                 setIsHeaderShow(false);
               }}
             >
-              <BurgerMenu />
+              <BarIcon />
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ const FourteenInfallibles = ({
               <div
                 className={`${language == "en" ? "left-0" : "right-0"} ${
                   scrollCount == 2 ? "h-full" : "h-0"
-                } absolute top-0 line-bg-dark w-[3px] rounded-lg`}
+                } absolute top-0 line-bg w-[3px] rounded-lg`}
                 style={{
                   transition: "height 1s 0.7s ease",
                 }}
@@ -56,13 +56,13 @@ const FourteenInfallibles = ({
                   scrollCount == 2
                     ? "opacity-100 visible"
                     : "opacity-0 invisible"
-                } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px]`}
+                } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px] bg-primary`}
                 style={{
                   transition: "all 0.5313s 0.8s ease",
                 }}
               ></div>
               <div className="content-inner md:ms-[35px] lg:ms-[39px] relative">
-                <MainSectionTitle active={active} lang={language} dark>
+                <MainSectionTitle active={active} lang={language}>
                   {language == "ar"
                     ? seasons[1].title.translations.ar
                     : language == "fa"
@@ -76,7 +76,7 @@ const FourteenInfallibles = ({
                       : "md:w-[360px] lg:w-[400px]"
                   } description mt-1`}
                 >
-                  <MainSectionDescription lang={language} dark>
+                  <MainSectionDescription lang={language}>
                     {language == "ar"
                       ? seasons[1].description.translations.ar
                       : language == "fa"
@@ -85,7 +85,7 @@ const FourteenInfallibles = ({
                   </MainSectionDescription>
                 </div>
                 <Link href={seasons[1].href}>
-                  <Button lang={language} dark/>
+                  <Button lang={language} />
                 </Link>
               </div>
             </div>

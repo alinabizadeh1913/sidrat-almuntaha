@@ -46,7 +46,7 @@ const EndlessSerenity = ({
               <div
                 className={`${language == "en" ? "left-0" : "right-0"} ${
                   scrollCount == 7 ? "h-full" : "h-0"
-                } absolute top-0 line-bg w-[3px] rounded-lg`}
+                } absolute top-0 line-bg-dark w-[3px] rounded-lg`}
                 style={{
                   transition: "height 1s 0.7s ease",
                 }}
@@ -56,13 +56,13 @@ const EndlessSerenity = ({
                   scrollCount == 7
                     ? "opacity-100 visible"
                     : "opacity-0 invisible"
-                } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px] bg-primary`}
+                } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px]`}
                 style={{
                   transition: "all 0.5313s 0.8s ease",
                 }}
               ></div>
               <div className="content-inner md:ms-[35px] lg:ms-[39px] relative">
-                <MainSectionTitle active={active} lang={language}>
+                <MainSectionTitle active={active} lang={language} dark>
                   {language == "ar"
                     ? seasons[6].title.translations.ar
                     : language == "fa"
@@ -76,7 +76,7 @@ const EndlessSerenity = ({
                       : "md:w-[360px] lg:w-[400px]"
                   } description mt-1`}
                 >
-                  <MainSectionDescription lang={language}>
+                  <MainSectionDescription lang={language} dark>
                     {language == "ar"
                       ? seasons[6].description.translations.ar
                       : language == "fa"
@@ -85,7 +85,7 @@ const EndlessSerenity = ({
                   </MainSectionDescription>
                 </div>
                 <Link href={seasons[6].href}>
-                  <Button lang={language} />
+                  <Button lang={language} dark/>
                 </Link>
               </div>
             </div>

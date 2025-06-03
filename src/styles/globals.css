@@ -648,3 +648,19 @@ body {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
+
+.scroll {
+  animation: scrolling 1.5s ease infinite;
+}
+
+@keyframes scrolling {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+#loading {
+  transition: opacity 0.35s 0.65s ease, visibility 0.35s 0.65s ease;
+}
