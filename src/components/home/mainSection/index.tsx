@@ -58,11 +58,7 @@ const MainSectionDescription = ({
     <Typography
       className={`${
         dark ? "text-secondary-dark" : "text-secondary"
-      } md:text-[20px] lg:text-[22px] xl:text-[24px] select-none ${
-        active
-          ? "md:leading-[36px] xl:leading-[40px]"
-          : "md:leading-[40px] xl:leading-[44px]"
-      } ${
+      } md:text-[20px] lg:text-[22px] xl:text-[24px] select-none md:leading-[40px] xl:leading-[44px] ${
         lang == "fa" || lang == "ar"
           ? "yekan-regular main-section-description-rtl leading-[32px] sm:leading-[36px]"
           : "biotif-regular main-section-description-ltr leading-[32px] sm:leading-[36px]"

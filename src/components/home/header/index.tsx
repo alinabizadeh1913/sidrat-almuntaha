@@ -30,7 +30,7 @@ const Header = () => {
     if (typeof window === "undefined") return;
 
     const checkScreenSize = () => {
-      const isLarge = window.innerWidth > 900;
+      const isLarge = window.innerWidth >= 900;
       setIsLargeScreen(isLarge);
     };
 

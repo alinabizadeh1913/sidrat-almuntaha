@@ -641,7 +641,7 @@ body {
 }
 
 .mask-image {
-  -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
   mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;

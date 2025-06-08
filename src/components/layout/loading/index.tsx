@@ -63,19 +63,19 @@ const Loading = () => {
         className={`fixed top-0 left-0 w-full h-full z-[1010] pt-9 pointer-events-none ${
           isLoadingShow
             ? "visible opacity-100"
-            : "invisible opacity-0 delay-[1200ms]"
+            : "invisible opacity-0 delay-[1700ms]"
         }`}
       >
         <div className="relative w-full h-full flex justify-center">
           <div
             className={`absolute ${
               isLoadingShow ? "top-[calc(50%-100px)]" : "top-[0px] delay-[650ms]"
-            } duration-500`}
+            } duration-[1000ms]`}
           >
             <div
               className={`${
                 isLoadingShow ? "w-[160px] h-[200px]" : "w-[48px] h-[56px] delay-[650ms]"
-              } relative z-[1050] duration-500`}
+              } relative z-[1050] duration-[1000ms]`}
             >
               <Image
                 src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}

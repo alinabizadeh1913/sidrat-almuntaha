@@ -85,7 +85,7 @@ const StoryOfSoil = ({
                   </MainSectionDescription>
                 </div>
                 <Link href={seasons[0].href}>
-                  <Button lang={language}  dark/>
+                  <Button lang={language} dark/>
                 </Link>
               </div>
             </div>
