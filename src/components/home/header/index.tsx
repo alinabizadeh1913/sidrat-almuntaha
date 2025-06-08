@@ -2,14 +2,12 @@
 
 import Section from "@/components/layout/section";
 import HomeNavbar from "./navbar";
-import { Down } from "../../../../public/svg";
 import { useEffect, useState } from "react";
 import MainMenu from "./navbar/mainMenu";
 import { GradientText, MainText } from "@/components/layout/text";
 import headerData from "@/database/header.json";
 import { useStore, useLoadingStore, useHeaderStore } from "@/store";
 import Grid from "@/components/layout/grid";
-import Seasons from "../mainSection/seasons";
 import Typewriter from "@/components/layout/typewriter";
 
 const { header } = headerData;
@@ -124,7 +122,7 @@ const Header = () => {
   return (
     <Section
       identifier="header"
-      className="flex flex-col md:h-screen md:overflow-hidden relative z-20"
+      className="flex flex-col md:h-screen md:overflow-hidden"
     >
       <div
         className={`${
@@ -136,9 +134,11 @@ const Header = () => {
             : "bg-body"
         } noise hidden md:block`}
       ></div>
+
       <section className="hidden md:block pb-9 md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[64px]">
         <HomeNavbar setIsMenuOpen={setIsMenuOpen} />
       </section>
+
       <Grid
         zIndex={25}
         dark={
@@ -150,10 +150,10 @@ const Header = () => {
             : false
         }
       />
-      <MainMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <Seasons scrollCount={scrollCount} setScrollCount={setScrollCount} />
 
-      <div className="w-full h-full flex pt-[60px] sm:pt-[80px] md:py-[36px]">
+      <MainMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
+      <div className="w-full h-full flex pt-[40px] sm:pt-[60px] md:py-[36px]">
         <div
           id="header-wrapper"
           className={`max-w-[1280px] w-full md:m-auto md:px-[48px] lg:px-[64px]`}
@@ -165,7 +165,7 @@ const Header = () => {
             className={`w-full h-full md:px-[16px] rounded-[25px] flex items-center`}
           >
             <section className="w-full">
-              <section className="flex md:justify-center">
+              <section className="flex justify-center">
                 <GradientText
                   weight="bold"
                   lang={language}
@@ -186,6 +186,7 @@ const Header = () => {
                 <MainText
                   weight="regular"
                   lang={language}
+                  align={"center"}
                   className={`text-tertiary ${
                     language == "en"
                       ? "my-4 text-[18px] sm:text-[20px] leading-[32px] sm:leading-[36px]"
@@ -256,25 +257,6 @@ const Header = () => {
           </section>
         </div>
       </div>
-      {/* <section className="hidden md:block pb-9 md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[64px]">
-        <Section special>
-          <div className="w-full flex justify-center items-center pb-9">
-            <div
-              className={`w-[24px] h-[52px] border-[2px] border-[#ffe4bf] rounded-full p-[2px] flex justify-center ${
-                isFinished
-                  ? "visible opacity-100 duration-200"
-                  : "invisible opacity-0"
-              } ease-in`}
-            >
-              <div
-                className={`w-[16px] h-[16px] rounded-full bg-tertiary ${
-                  isFinished ? "scroll" : ""
-                }`}
-              ></div>
-            </div>
-          </div>
-        </Section>
-      </section> */}
     </Section>
   );
 };

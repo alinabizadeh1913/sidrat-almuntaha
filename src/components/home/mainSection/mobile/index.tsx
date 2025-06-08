@@ -50,7 +50,7 @@ const SeasonsMobile = () => {
   return (
     <Section identifier="home-mobile-seasons" className="block md:hidden">
       {seasons.map((season, index) => (
-        <Section space="extralarge" className="w-full" key={index}>
+        <Section space="large" className="w-full" key={index}>
           <div
             ref={(el) => {
               sectionRefs.current[index] = el;

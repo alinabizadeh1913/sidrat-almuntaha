@@ -7,6 +7,7 @@ interface TextProps {
   tagName?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   lang?: "ar" | "fa" | "en";
   quran?: boolean;
+  align?: "center" | "start" | "end";
 }
 
 const MainText = ({
@@ -16,13 +17,14 @@ const MainText = ({
   tagName,
   lang,
   quran,
+  align,
 }: TextProps) => {
   return (
     <Typography
       tagName={tagName}
       className={`${className} ${
         lang == "ar" || lang == "fa" ? `yekan-${weight}` : `biotif-${weight}`
-      } ${quran ? "uthman" : ""} select-none`}
+      } ${quran ? "uthman" : ""} ${align == "center" ? "text-center" : align == "start" ? "text-start" : align == "end" ? "text-end" : ""} select-none`}
     >
       {children}
     </Typography>
