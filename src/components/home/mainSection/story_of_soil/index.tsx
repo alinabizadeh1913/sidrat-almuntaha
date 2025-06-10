@@ -114,29 +114,6 @@ const StoryOfSoil = () => {
                   opacity: lineOpacity,
                 }}
               />
-              <motion.div
-                className={`${
-                  language == "en" ? "left-[5%]" : "right-[5%]"
-                } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px]`}
-                style={{
-                  scale: useSpring(
-                    useTransform(
-                      scrollYProgress,
-                      [0, 0.2, 0.7, 0.8],
-                      [0.8, 1, 1, 0.8]
-                    ),
-                    springConfig
-                  ),
-                  opacity: useSpring(
-                    useTransform(
-                      scrollYProgress,
-                      [0, 0.2, 0.7, 0.8],
-                      [initialOpacity, 1, 1, initialOpacity]
-                    ),
-                    springConfig
-                  ),
-                }}
-              />
               <div className="content-inner md:ms-[35px] lg:ms-[39px]">
                 <motion.div
                   style={{

@@ -129,8 +129,6 @@ const Header = () => {
       identifier="header"
       className="flex flex-col md:h-screen md:overflow-hidden relative"
     >
-      <div className={`noise hidden md:block bg-body`} />
-
       <section className="hidden md:block pb-9 md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[64px]">
         <HomeNavbar setIsMenuOpen={setIsMenuOpen} />
       </section>

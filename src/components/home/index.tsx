@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "./header";
 import HomeNavbar from "./header/navbar";
 import SeasonsMobile from "./mainSection/mobile";
@@ -19,8 +19,8 @@ const HomeComponents = () => {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 2.5, // مدت زمان حرکت (سافت‌تر = بالاتر)
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ease out expo
+      duration: 2.5,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
 
@@ -56,7 +56,7 @@ const HomeComponents = () => {
         <MobileFooter />
       </section>
 
-      <div className="noise block md:hidden"></div>
+      <div className="noise" />
     </>
   );
 };
