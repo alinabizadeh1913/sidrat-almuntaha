@@ -70,7 +70,7 @@ const HomeComponents = () => {
         <MobileFooter />
       </section>
 
-      <div className="noise" />
+      <div className="noise bg-body" />
     </>
   );
 };

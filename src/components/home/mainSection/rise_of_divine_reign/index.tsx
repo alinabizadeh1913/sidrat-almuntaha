@@ -108,7 +108,7 @@ const RiseOfDivineReign = ({
               <motion.div
                 className={`${
                   language == "en" ? "left-0" : "right-0"
-                } absolute top-0 line-bg-dark w-[3px] rounded-lg`}
+                } absolute top-0 line-bg w-[3px] rounded-lg`}
                 style={{
                   height: useTransform(
                     lineHeight,
@@ -147,7 +147,7 @@ const RiseOfDivineReign = ({
                     opacity: titleOpacity,
                   }}
                 >
-                  <MainSectionTitle active={active} lang={language} dark>
+                  <MainSectionTitle active={active} lang={language}>
                     {language == "ar"
                       ? seasons[2].title.translations.ar
                       : language == "fa"
@@ -166,7 +166,7 @@ const RiseOfDivineReign = ({
                     opacity: descriptionOpacity,
                   }}
                 >
-                  <MainSectionDescription lang={language} dark>
+                  <MainSectionDescription lang={language}>
                     {language == "ar"
                       ? seasons[2].description.translations.ar
                       : language == "fa"
@@ -182,7 +182,7 @@ const RiseOfDivineReign = ({
                     }}
                   >
                     <Link href={seasons[2].href} className="block">
-                      <Button lang={language} dark />
+                      <Button lang={language} />
                     </Link>
                   </motion.div>
                 </div>
