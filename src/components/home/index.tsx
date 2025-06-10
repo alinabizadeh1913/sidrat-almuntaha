@@ -17,6 +17,14 @@ import Lenis from "lenis";
 const HomeComponents = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
+  const StoryOfSoilContainerRef = useRef<HTMLDivElement>(null);
+  const FourteenInfalliblesContainerRef = useRef<HTMLDivElement>(null);
+  const RiseOfDivineReignContainerRef = useRef<HTMLDivElement>(null);
+  const SuspendedHouseContainerRef = useRef<HTMLDivElement>(null);
+  const DayOfJudgmentContainerRef = useRef<HTMLDivElement>(null);
+  const EternalFallContainerRef = useRef<HTMLDivElement>(null);
+  const EndlessSerenityContainerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 2.5,
@@ -42,13 +50,19 @@ const HomeComponents = () => {
 
       <Header />
 
-      <StoryOfSoil />
-      <FourteenInfallibles />
-      <RiseOfDivineReign />
-      <SuspendedHouse />
-      <DayOfJudgment />
-      <EternalFall />
-      <EndlessSerenity />
+      <StoryOfSoil StoryOfSoilContainerRef={StoryOfSoilContainerRef} />
+      <FourteenInfallibles
+        FourteenInfalliblesContainerRef={FourteenInfalliblesContainerRef}
+      />
+      <RiseOfDivineReign
+        RiseOfDivineReignContainerRef={RiseOfDivineReignContainerRef}
+      />
+      <SuspendedHouse SuspendedHouseContainerRef={SuspendedHouseContainerRef} />
+      <DayOfJudgment DayOfJudgmentContainerRef={DayOfJudgmentContainerRef} />
+      <EternalFall EternalFallContainerRef={EternalFallContainerRef} />
+      <EndlessSerenity
+        EndlessSerenityContainerRef={EndlessSerenityContainerRef}
+      />
 
       <SeasonsMobile />
 

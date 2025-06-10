@@ -11,13 +11,16 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const { seasons } = seasonsData;
 
-const EternalFall = () => {
+const EternalFall = ({
+  EternalFallContainerRef,
+}: {
+  EternalFallContainerRef: React.RefObject<HTMLDivElement | null>;
+}) => {
   const [active, setActive] = useState<boolean>(true);
   const language = useStore((state) => state.language);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: EternalFallContainerRef,
     offset: ["start end", "end start"],
   });
 
@@ -95,7 +98,7 @@ const EternalFall = () => {
 
   return (
     <div
-      ref={containerRef}
+      ref={EternalFallContainerRef}
       className={`main-section w-full h-[200vh] hidden md:block`}
     >
       <div className="w-full h-screen sticky top-0 overflow-hidden">

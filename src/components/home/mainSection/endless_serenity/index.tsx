@@ -11,13 +11,16 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const { seasons } = seasonsData;
 
-const EndlessSerenity = () => {
+const EndlessSerenity = ({
+  EndlessSerenityContainerRef,
+}: {
+  EndlessSerenityContainerRef: React.RefObject<HTMLDivElement | null>;
+}) => {
   const [active, setActive] = useState<boolean>(true);
   const language = useStore((state) => state.language);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: EndlessSerenityContainerRef,
     offset: ["start end", "end start"],
   });
 
@@ -95,7 +98,7 @@ const EndlessSerenity = () => {
 
   return (
     <div
-      ref={containerRef}
+      ref={EndlessSerenityContainerRef}
       className={`main-section w-full h-[200vh] hidden md:block`}
     >
       <div className="w-full h-screen sticky top-0 overflow-hidden">
