@@ -15,41 +15,103 @@ const StoryOfSoil = () => {
   const [active, setActive] = useState<boolean>(true);
   const language = useStore((state) => state.language);
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   // Smooth spring animations
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-  
+
   // Initial and exit animations
   const initialOpacity = 0;
-  
+
   // Transform values with spring physics
-  const lineHeight = useSpring(useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]), springConfig);
-  const titleY = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.7, 1], [100, 0, 0, -100]), springConfig);
-  const titleOpacity = useSpring(useTransform(scrollYProgress, [0, 0.1, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig);
-  const descriptionY = useSpring(useTransform(scrollYProgress, [0.1, 0.3, 0.7, 1], [50, 0, 0, -50]), springConfig);
-  const descriptionOpacity = useSpring(useTransform(scrollYProgress, [0.1, 0.2, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig);
-  const imageY = useSpring(useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [-100, 0, 0, 100]), springConfig);
-  const imageOpacity = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig);
-  const buttonY = useSpring(useTransform(scrollYProgress, [0.2, 0.4, 0.7, 1], [30, 0, 0, -30]), springConfig);
-  const buttonOpacity = useSpring(useTransform(scrollYProgress, [0.2, 0.3, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig);
+  const firstImageOpacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7], [1, 1, 0, 0]),
+    springConfig
+  );
+  const secondImageOpacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7], [0, 0, 1, 1]),
+    springConfig
+  );
+  const lineHeight = useSpring(
+    useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.7, 1, 1]),
+    springConfig
+  );
+  const lineOpacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.3, 0.7, 0.8], [1, 1, 1, 0]),
+    springConfig
+  );
+  const titleY = useSpring(
+    useTransform(scrollYProgress, [0, 0.2, 0.7, 1], [100, 0, 0, -100]),
+    springConfig
+  );
+  const titleOpacity = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0, 0.1, 0.7, 0.8],
+      [initialOpacity, 1, 1, initialOpacity]
+    ),
+    springConfig
+  );
+  const descriptionY = useSpring(
+    useTransform(scrollYProgress, [0.1, 0.3, 0.7, 1], [50, 0, 0, -50]),
+    springConfig
+  );
+  const descriptionOpacity = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0.1, 0.2, 0.7, 0.8],
+      [initialOpacity, 1, 1, initialOpacity]
+    ),
+    springConfig
+  );
+  const imageY = useSpring(
+    useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [-100, 0, 0, 100]),
+    springConfig
+  );
+  const imageOpacity = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0, 0.2, 0.7, 0.8],
+      [initialOpacity, 1, 1, initialOpacity]
+    ),
+    springConfig
+  );
+  const buttonY = useSpring(
+    useTransform(scrollYProgress, [0.2, 0.4, 0.7, 1], [30, 0, 0, -30]),
+    springConfig
+  );
+  const buttonOpacity = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0.2, 0.3, 0.7, 0.8],
+      [initialOpacity, 1, 1, initialOpacity]
+    ),
+    springConfig
+  );
 
   return (
-    <div ref={containerRef} className={`main-section w-full h-[200vh] hidden md:block`}>
+    <div
+      ref={containerRef}
+      className={`main-section w-full h-[200vh] hidden md:block`}
+    >
       <div className="w-full h-screen sticky top-0 overflow-hidden">
         <div className="max-w-[1100px] w-full h-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-[24px] 2xl:px-0">
           <div className="w-full flex items-center justify-between">
-            <div className="content relative z-[1]">
+            <div className="content relative">
               <motion.div
                 className={`${
                   language == "en" ? "left-0" : "right-0"
                 } absolute top-0 line-bg-dark w-[3px] rounded-lg`}
                 style={{
-                  height: useTransform(lineHeight, (value) => `${value * 100}%`),
+                  height: useTransform(
+                    lineHeight,
+                    (value) => `${value * 100}%`
+                  ),
+                  opacity: lineOpacity,
                 }}
               />
               <motion.div
@@ -57,8 +119,22 @@ const StoryOfSoil = () => {
                   language == "en" ? "left-[5%]" : "right-[5%]"
                 } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px]`}
                 style={{
-                  scale: useSpring(useTransform(scrollYProgress, [0, 0.2, 0.7, 0.8], [0.8, 1, 1, 0.8]), springConfig),
-                  opacity: useSpring(useTransform(scrollYProgress, [0, 0.2, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig),
+                  scale: useSpring(
+                    useTransform(
+                      scrollYProgress,
+                      [0, 0.2, 0.7, 0.8],
+                      [0.8, 1, 1, 0.8]
+                    ),
+                    springConfig
+                  ),
+                  opacity: useSpring(
+                    useTransform(
+                      scrollYProgress,
+                      [0, 0.2, 0.7, 0.8],
+                      [initialOpacity, 1, 1, initialOpacity]
+                    ),
+                    springConfig
+                  ),
                 }}
               />
               <div className="content-inner md:ms-[35px] lg:ms-[39px]">
@@ -95,35 +171,72 @@ const StoryOfSoil = () => {
                       : seasons[0].description.translations.en}
                   </MainSectionDescription>
                 </motion.div>
-                <motion.div
-                  style={{
-                    y: buttonY,
-                    opacity: buttonOpacity,
-                  }}
-                  className="relative z-[50]"
-                >
-                  <Link href={seasons[0].href} className="block">
-                    <Button lang={language} dark/>
-                  </Link>
-                </motion.div>
+                <div className="relative z-[50]">
+                  <motion.div
+                    style={{
+                      y: buttonY,
+                      opacity: buttonOpacity,
+                    }}
+                  >
+                    <Link href={seasons[0].href} className="block">
+                      <Button lang={language} dark />
+                    </Link>
+                  </motion.div>
+                </div>
               </div>
             </div>
-            <motion.figure
-              className={`images relative z-[50] overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[420px] xl:h-[540px]`}
-              style={{
-                y: imageY,
-                opacity: imageOpacity,
-                scale: useSpring(useTransform(scrollYProgress, [0, 0.3, 0.7, 0.8], [0.95, 1, 1, 0.95]), springConfig),
-              }}
-            >
-              <Image
-                src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[0].imageUrls[0]}`}
-                alt={seasons[0].slug}
-                fill
-                objectFit="cover"
-                className="mask-image"
-              />
-            </motion.figure>
+            <div className="relative z-[50]">
+              <motion.figure
+                className={`images overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[420px] xl:h-[540px]`}
+                style={{
+                  y: imageY,
+                  opacity: imageOpacity,
+                  scale: useSpring(
+                    useTransform(
+                      scrollYProgress,
+                      [0, 0.3, 0.7, 0.8],
+                      [0.95, 1, 1, 0.95]
+                    ),
+                    springConfig
+                  ),
+                }}
+              >
+                <motion.div
+                  style={{
+                    opacity: firstImageOpacity,
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[0].imageUrls[0]}`}
+                    alt={seasons[0].slug}
+                    fill
+                    objectFit="cover"
+                    className="mask-image"
+                  />
+                </motion.div>
+                <motion.div
+                  style={{
+                    opacity: secondImageOpacity,
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[0].imageUrls[1]}`}
+                    alt={seasons[0].slug}
+                    fill
+                    objectFit="cover"
+                    className="mask-image"
+                  />
+                </motion.div>
+              </motion.figure>
+            </div>
           </div>
         </div>
       </div>

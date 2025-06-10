@@ -129,50 +129,11 @@ const Header = () => {
       identifier="header"
       className="flex flex-col md:h-screen md:overflow-hidden relative"
     >
-      <div className={`noise hidden md:block`}>
-        {/* <div className="absolute flex w-full h-full top-0 left-0">
-          <div
-            className={`absolute top-0 left-0 w-1/2 basis-[50%] bg-[#fff] h-full ${
-              scrollCount % 2 == 1 ? "translate-y-0" : "translate-y-[-100%]"
-            } duration-700`}
-          ></div>
-          <div
-            className={`absolute top-0 right-0 w-1/2 basis-[50%] bg-[#000000] h-full ${
-              scrollCount % 2 == 1 ? "translate-y-0" : "translate-y-[100%]"
-            } duration-700`}
-          ></div>
-          <div
-            className={`absolute top-0 right-0 w-1/2 basis-[50%] bg-[#fff] h-full ${
-              scrollCount % 2 == 0 && scrollCount != 0
-                ? "translate-y-0"
-                : "translate-y-[-100%]"
-            } duration-700`}
-          ></div>
-          <div
-            className={`absolute top-0 left-0 w-1/2 basis-[50%] bg-[#000000] h-full ${
-              scrollCount % 2 == 0 && scrollCount != 0
-                ? "translate-y-0"
-                : "translate-y-[100%]"
-            } duration-700`}
-          ></div>
-        </div> */}
-      </div>
+      <div className={`noise hidden md:block bg-body`} />
 
       <section className="hidden md:block pb-9 md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[64px]">
         <HomeNavbar setIsMenuOpen={setIsMenuOpen} />
       </section>
-
-      <Grid
-        zIndex={25}
-        dark={
-          scrollCount == 1 ||
-          scrollCount == 3 ||
-          scrollCount == 5 ||
-          scrollCount == 7
-            ? true
-            : false
-        }
-      />
 
       <MainMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 

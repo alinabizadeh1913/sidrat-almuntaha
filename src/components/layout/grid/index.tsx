@@ -1,4 +1,3 @@
-// app/components/Grid.tsx
 "use client";
 import { useEffect, useRef, useState } from "react";
 
@@ -7,12 +6,12 @@ interface Point {
   y: number;
 }
 
-const Grid = ({ zIndex, dark }: { zIndex: number; dark: boolean }) => {
-  const GRID_SPACING = 110; // فاصله خطوط
-  const RADIUS = 130; // شعاع تاثیر موس
+const Grid = ({ zIndex = 0, dark }: { zIndex?: number; dark: boolean }) => {
+  const GRID_SPACING = 110;
+  const RADIUS = 130;
   const BASE_OPACITY = 0.008;
   const ACTIVE_OPACITY = dark ? 0.6313 : 0.313;
-  const TRANSITION_TIME = 313; // ms
+  const TRANSITION_TIME = 313;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mouse, setMouse] = useState<Point | null>(null);
@@ -21,7 +20,6 @@ const Grid = ({ zIndex, dark }: { zIndex: number; dark: boolean }) => {
     height: number;
   }>({ width: 0, height: 0 });
 
-  // گرفتن سایز صفحه برای ریسپانسیو بودن
   useEffect(() => {
     const updateSize = () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
@@ -31,7 +29,6 @@ const Grid = ({ zIndex, dark }: { zIndex: number; dark: boolean }) => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  // رسم Grid با توجه به موس
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -45,7 +42,6 @@ const Grid = ({ zIndex, dark }: { zIndex: number; dark: boolean }) => {
     ctx.strokeStyle = "rgba(21, 22, 22," + BASE_OPACITY + ")";
     ctx.lineWidth = 0.5;
 
-    // رسم خطوط
     for (let x = 0; x <= canvas.width; x += GRID_SPACING) {
       for (let y = 0; y <= canvas.height; y += GRID_SPACING) {
         const isVertical = true;
@@ -67,13 +63,11 @@ const Grid = ({ zIndex, dark }: { zIndex: number; dark: boolean }) => {
           ? `rgba(0,0,0,${opacity})`
           : `rgba(255,255,255,${opacity})`;
 
-        // Vertical line
         ctx.beginPath();
         ctx.moveTo(x, 0);
         ctx.lineTo(x, canvas.height);
         ctx.stroke();
 
-        // Horizontal line
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(canvas.width, y);
@@ -83,15 +77,14 @@ const Grid = ({ zIndex, dark }: { zIndex: number; dark: boolean }) => {
   }, [mouse, windowSize]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="hidden md:block fixed inset-0 transition-opacity duration-[100ms]"
-      style={{
-        zIndex: zIndex,
-      }}
-      onMouseMove={(e) => setMouse({ x: e.clientX, y: e.clientY })}
-      onMouseLeave={() => setMouse(null)}
-    />
+    <div style={{ position: "fixed", inset: 0, zIndex: 1 }}>
+      <canvas
+        ref={canvasRef}
+        className="hidden md:block w-full h-full transition-opacity duration-[100ms]"
+        onMouseMove={(e) => setMouse({ x: e.clientX, y: e.clientY })}
+        onMouseLeave={() => setMouse(null)}
+      />
+    </div>
   );
 };
 
