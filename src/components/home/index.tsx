@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./header";
 import HomeNavbar from "./header/navbar";
 import SeasonsMobile from "./mainSection/mobile";
@@ -12,9 +12,28 @@ import SuspendedHouse from "./mainSection/suspended_house";
 import DayOfJudgment from "./mainSection/day_of_judgment";
 import EternalFall from "./mainSection/eternal_fall";
 import EndlessSerenity from "./mainSection/endless_serenity";
+import Lenis from "lenis";
 
 const HomeComponents = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 2.5, // مدت زمان حرکت (سافت‌تر = بالاتر)
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ease out expo
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
+  }, []);
+
   return (
     <>
       <section className="block md:hidden pb-9 px-[32px] z-[100] relative">

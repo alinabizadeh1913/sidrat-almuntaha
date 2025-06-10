@@ -1,55 +1,91 @@
 "use client";
 
 import Button from "@/components/layout/button";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { MainSectionDescription, MainSectionTitle } from "..";
 import seasonsData from "@/database/seasons.json";
 import { useStore } from "@/store";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const { seasons } = seasonsData;
 
 const StoryOfSoil = () => {
   const [active, setActive] = useState<boolean>(true);
-  const { language } = useStore();
+  const language = useStore((state) => state.language);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Smooth spring animations
+  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
+  
+  // Initial and exit animations
+  const initialOpacity = 0;
+  
+  // Transform values with spring physics
+  const lineHeight = useSpring(useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]), springConfig);
+  const titleY = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.7, 1], [100, 0, 0, -100]), springConfig);
+  const titleOpacity = useSpring(useTransform(scrollYProgress, [0, 0.1, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig);
+  const descriptionY = useSpring(useTransform(scrollYProgress, [0.1, 0.3, 0.7, 1], [50, 0, 0, -50]), springConfig);
+  const descriptionOpacity = useSpring(useTransform(scrollYProgress, [0.1, 0.2, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig);
+  const imageY = useSpring(useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [-100, 0, 0, 100]), springConfig);
+  const imageOpacity = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig);
+  const buttonY = useSpring(useTransform(scrollYProgress, [0.2, 0.4, 0.7, 1], [30, 0, 0, -30]), springConfig);
+  const buttonOpacity = useSpring(useTransform(scrollYProgress, [0.2, 0.3, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig);
 
   return (
-    <div className={`main-section w-full h-screen hidden md:block`}>
-      <div className="w-full h-full flex">
-        <div className="max-w-[1100px] w-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-[24px] 2xl:px-0">
+    <div ref={containerRef} className={`main-section w-full h-[200vh] hidden md:block`}>
+      <div className="w-full h-screen sticky top-0 overflow-hidden">
+        <div className="max-w-[1100px] w-full h-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-[24px] 2xl:px-0">
           <div className="w-full flex items-center justify-between">
-            <div className="content relative">
-              <div
+            <div className="content relative z-[1]">
+              <motion.div
                 className={`${
                   language == "en" ? "left-0" : "right-0"
-                } absolute top-0 line-bg-dark w-[3px] rounded-lg h-full`}
+                } absolute top-0 line-bg-dark w-[3px] rounded-lg`}
                 style={{
-                  transition: "height 1s 0.7s ease",
+                  height: useTransform(lineHeight, (value) => `${value * 100}%`),
                 }}
-              ></div>
-              <div
+              />
+              <motion.div
                 className={`${
                   language == "en" ? "left-[5%]" : "right-[5%]"
                 } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px]`}
                 style={{
-                  transition: "all 0.5313s 0.8s ease",
+                  scale: useSpring(useTransform(scrollYProgress, [0, 0.2, 0.7, 0.8], [0.8, 1, 1, 0.8]), springConfig),
+                  opacity: useSpring(useTransform(scrollYProgress, [0, 0.2, 0.7, 0.8], [initialOpacity, 1, 1, initialOpacity]), springConfig),
                 }}
-              ></div>
+              />
               <div className="content-inner md:ms-[35px] lg:ms-[39px]">
-                <MainSectionTitle active={active} lang={language} dark>
-                  {language == "ar"
-                    ? seasons[0].title.translations.ar
-                    : language == "fa"
-                    ? seasons[0].title.translations.fa
-                    : seasons[0].title.translations.en}
-                </MainSectionTitle>
-                <div
+                <motion.div
+                  style={{
+                    y: titleY,
+                    opacity: titleOpacity,
+                  }}
+                >
+                  <MainSectionTitle active={active} lang={language} dark>
+                    {language == "ar"
+                      ? seasons[0].title.translations.ar
+                      : language == "fa"
+                      ? seasons[0].title.translations.fa
+                      : seasons[0].title.translations.en}
+                  </MainSectionTitle>
+                </motion.div>
+                <motion.div
                   className={`${
                     language == "en"
                       ? "md:w-[360px] lg:w-[400px] xl:w-[480px]"
-                      : "md:w-[320px] lg:w-[400px] xl:w-[440px]"
+                      : "md:w-[320px] lg:w-[400px]"
                   } description mt-1`}
+                  style={{
+                    y: descriptionY,
+                    opacity: descriptionOpacity,
+                  }}
                 >
                   <MainSectionDescription lang={language} dark>
                     {language == "ar"
@@ -58,16 +94,26 @@ const StoryOfSoil = () => {
                       ? seasons[0].description.translations.fa
                       : seasons[0].description.translations.en}
                   </MainSectionDescription>
-                </div>
-                <Link href={seasons[0].href}>
-                  <Button lang={language} dark />
-                </Link>
+                </motion.div>
+                <motion.div
+                  style={{
+                    y: buttonY,
+                    opacity: buttonOpacity,
+                  }}
+                  className="relative z-[50]"
+                >
+                  <Link href={seasons[0].href} className="block">
+                    <Button lang={language} dark/>
+                  </Link>
+                </motion.div>
               </div>
             </div>
-            <figure
+            <motion.figure
               className={`images relative z-[50] overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[420px] xl:h-[540px]`}
               style={{
-                transition: "all 0.5313s 0.55s ease",
+                y: imageY,
+                opacity: imageOpacity,
+                scale: useSpring(useTransform(scrollYProgress, [0, 0.3, 0.7, 0.8], [0.95, 1, 1, 0.95]), springConfig),
               }}
             >
               <Image
@@ -77,11 +123,12 @@ const StoryOfSoil = () => {
                 objectFit="cover"
                 className="mask-image"
               />
-            </figure>
+            </motion.figure>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default StoryOfSoil;

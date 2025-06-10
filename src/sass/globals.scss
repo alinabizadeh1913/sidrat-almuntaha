@@ -7,12 +7,15 @@
 // Variables
 
 $body-background: #0c0c0c;
+
 $text-linear: linear-gradient(180deg, #fda52a, #fae3c3);
 $text-linear-dark: linear-gradient(180deg, #181512, #83817e);
+
 $text-primary: #fdc882;
 $text-secondary: #ead6b2;
 $text-tertiary: #ffe4bf;
 $text-quran: #fff;
+
 $text-primary-dark: #181512;
 $text-secondary-dark: #201c18;
 $text-tertiary-dark: #27221d;
@@ -20,9 +23,16 @@ $text-tertiary-dark: #27221d;
 $bg-primary: #fdc882;
 $bg-secondary: #ead6b2;
 $bg-tertiary: #ffe4bf;
+
+$bg-primary-dark: #181512;
+$bg-secondary-dark: #201c18;
+$bg-tertiary-dark: #27221d;
+
 $bg-linear: linear-gradient(135deg, #191919, #292b2e);
+
 $line-bg: linear-gradient(to bottom, #f8c279, #ac8654, #151616);
 $line-bg-dark: linear-gradient(to bottom, #181512, #585149, #fff);
+
 $bg-overlay-1: linear-gradient(to bottom, #0c0c0c00, #0c0c0c00, #0c0c0c);
 
 $button-hover: rgba(240, 197, 139, 0.05);
@@ -30,6 +40,7 @@ $button-hover-dark: rgba(29, 25, 19, 0.05);
 
 $border-primary: #fff3e240;
 $border-secondary: #fdc882;
+
 $border-primary-dark: #b8aea4;
 $border-secondary-dark: #181512;
 
@@ -77,6 +88,18 @@ $border-secondary-dark: #181512;
 
 .bg-tertiary {
   background-color: $bg-tertiary;
+}
+
+.bg-primary-dark {
+  background-color: $bg-primary-dark;
+}
+
+.bg-secondary-dark {
+  background-color: $bg-secondary-dark;
+}
+
+.bg-tertiary-dark {
+  background-color: $bg-tertiary-dark;
 }
 
 .bg-linear {
@@ -785,6 +808,24 @@ body {
     width: 300%;
   }
 }
+.noise-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  transition: 1s ease;
+  &::after {
+    background-image: url("/uploads/pictures/noise.png");
+    content: "";
+    height: 300%;
+    left: -50%;
+    position: absolute;
+    top: -110%;
+    width: 300%;
+  }
+}
 
 // Mask Image
 .mask-image {
@@ -829,5 +870,5 @@ body {
 
 // Loading
 #loading {
-  transition: opacity 0.35s 0.650s ease, visibility 0.35s 0.650s ease;
+  transition: opacity 0.35s 0.65s ease, visibility 0.35s 0.65s ease;
 }

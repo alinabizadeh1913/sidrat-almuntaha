@@ -31,7 +31,7 @@ const EternalFall = () => {
               <div
                 className={`${
                   language == "en" ? "left-[5%]" : "right-[5%]"
-                } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px] bg-primary`}
+                } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px]`}
                 style={{
                   transition: "all 0.5313s 0.8s ease",
                 }}
