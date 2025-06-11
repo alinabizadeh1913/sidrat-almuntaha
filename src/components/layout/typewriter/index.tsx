@@ -79,7 +79,9 @@ const Typewriter = ({
   }, [children, speed, delay]);
 
   return (
-    <div className={`relative w-full transition-all duration-500 ease-in-out select-none`}>
+    <div
+      className={`relative w-full transition-all duration-500 ease-in-out select-none`}
+    >
       <Typography
         tagName={tagName}
         className={`whitespace-pre-wrap break-words select-none ${className} ${
@@ -94,7 +96,8 @@ const Typewriter = ({
             inline-block 
             w-[2px] 
             h-[1.4em] 
-            bg-[#fff] 
+            bg-[#000] 
+            dark:bg-[#fff]
             ms-1 
             animate-blink 
             align-middle

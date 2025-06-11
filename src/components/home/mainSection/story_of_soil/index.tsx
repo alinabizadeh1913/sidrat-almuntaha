@@ -124,7 +124,7 @@ const StoryOfSoil = ({
                     opacity: titleOpacity,
                   }}
                 >
-                  <MainSectionTitle active={active} lang={language} >
+                  <MainSectionTitle active={active} lang={language}>
                     {language == "ar"
                       ? seasons[0].title.translations.ar
                       : language == "fa"
@@ -143,7 +143,7 @@ const StoryOfSoil = ({
                     opacity: descriptionOpacity,
                   }}
                 >
-                  <MainSectionDescription lang={language} >
+                  <MainSectionDescription lang={language}>
                     {language == "ar"
                       ? seasons[0].description.translations.ar
                       : language == "fa"
