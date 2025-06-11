@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Section from "../section";
 import { useHeaderStore, useLoadingStore } from "@/store";
 import Image from "next/image";
@@ -19,6 +19,24 @@ const Loading = () => {
   } = useLoadingStore();
 
   const { setIsHeaderShow } = useHeaderStore();
+
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setIsDarkMode(isDark);
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(() => {
+      checkDarkMode();
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const STROKE_WIDTH = 4;
   const CIRCLE_RADIUS = 70 - STROKE_WIDTH / 2;
@@ -69,24 +87,41 @@ const Loading = () => {
         <div className="relative w-full h-full flex justify-center">
           <div
             className={`absolute ${
-              isLoadingShow ? "top-[calc(50%-100px)]" : "top-[0px] delay-[650ms]"
+              isLoadingShow
+                ? "top-[calc(50%-100px)]"
+                : "top-[0px] delay-[650ms]"
             } duration-[1000ms]`}
           >
             <div
               className={`${
-                isLoadingShow ? "w-[160px] h-[200px]" : "w-[48px] h-[56px] delay-[650ms]"
+                isLoadingShow
+                  ? "w-[160px] h-[200px]"
+                  : "w-[48px] h-[56px] delay-[650ms]"
               } relative z-[1050] duration-[1000ms]`}
             >
-              <Image
-                src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}
-                alt="logo"
-                fill
-                objectFit="cover"
-                style={{
-                  opacity: `${progress}%`,
-                  transition: `opacity 0.313s ease`,
-                }}
-              />
+              {isDarkMode ? (
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}
+                  alt="logo"
+                  fill
+                  objectFit="cover"
+                  style={{
+                    opacity: `${progress}%`,
+                    transition: `opacity 0.313s ease`,
+                  }}
+                />
+              ) : (
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoDarkUrl}`}
+                  alt="logo"
+                  fill
+                  objectFit="cover"
+                  style={{
+                    opacity: `${progress}%`,
+                    transition: `opacity 0.313s ease`,
+                  }}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -94,9 +129,7 @@ const Loading = () => {
       <Section
         identifier="loading"
         className={`${
-          isLoadingShow
-            ? "visible opacity-100"
-            : "invisible opacity-0"
+          isLoadingShow ? "visible opacity-100" : "invisible opacity-0"
         } w-full h-screen fixed z-[1000] top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-[#dbdbdb] dark:bg-[#151515]`}
       >
         <div

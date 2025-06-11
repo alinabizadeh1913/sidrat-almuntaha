@@ -24,19 +24,41 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="ltr">
-      <head>
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.faviconUrl}`}
-        />
-      </head>
       <body className={`${Font.className} antialiased`}>
         <Layout>{children}</Layout>
-        <Script
-          src="https://kit.fontawesome.com/79a164c540.js"
-          crossOrigin="anonymous"
-        ></Script>
+
+        <Script id="dynamic-favicon" strategy="afterInteractive">
+          {`
+    (function () {
+      const setFavicon = () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        const existing = document.querySelector("link[rel='icon']");
+        if (existing) existing.remove();
+
+        const link = document.createElement("link");
+        link.rel = "icon";
+        link.type = "image/png";
+        link.href = isDark
+          ? "${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.faviconUrl}"
+          : "${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.faviconDarkUrl}";
+        document.head.appendChild(link);
+      };
+
+      // بار اول اجرا
+      setFavicon();
+
+      // گوش دادن به تغییر تم
+      const observer = new MutationObserver(() => {
+        setFavicon();
+      });
+
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+    })();
+  `}
+        </Script>
       </body>
     </html>
   );

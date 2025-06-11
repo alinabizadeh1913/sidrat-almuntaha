@@ -10,8 +10,8 @@ const Grid = ({ dark }: { dark?: boolean }) => {
   const [gridSpacing, setGridSpacing] = useState<number>(110);
   const [radius, setRadius] = useState<number>(130);
 
-  const BASE_OPACITY = 0.008;
-  const ACTIVE_OPACITY = dark ? 0.5313 : 0.313;
+  const BASE_OPACITY = 0.006;
+  const ACTIVE_OPACITY = dark ? 1 : 0.313;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mouse, setMouse] = useState<Point | null>(null);
@@ -77,7 +77,7 @@ const Grid = ({ dark }: { dark?: boolean }) => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = "rgba(21, 22, 22," + BASE_OPACITY + ")";
-    ctx.lineWidth = 0.5;
+    ctx.lineWidth = 0.313;
 
     for (let x = 0; x <= canvas.width; x += gridSpacing) {
       for (let y = 0; y <= canvas.height; y += gridSpacing) {

@@ -15,6 +15,8 @@ import EndlessSerenity from "./mainSection/endless_serenity";
 import Lenis from "lenis";
 import Grid from "../layout/grid";
 import Footer from "./footer";
+import ScrollToTop from "./fixedItem/scrollToTop";
+import PlayMusic from "./fixedItem/playMusic";
 
 const HomeComponents = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -91,6 +93,14 @@ const HomeComponents = () => {
       </section>
 
       <div className="noise bg-[#fff] dark:bg-[#0c0c0c]" />
+
+      <section
+        className="pb-9 px-[32px] md:px-[48px] lg:px-[64px] fixed z-[250] bottom-0 left-0 right-0 w-full flex justify-between"
+        dir="ltr"
+      >
+        <ScrollToTop />
+        <PlayMusic />
+      </section>
 
       <Grid dark={isDarkMode} />
     </>

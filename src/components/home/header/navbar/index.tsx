@@ -17,6 +17,24 @@ const HomeNavbar = ({
 }: {
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setIsDarkMode(isDark);
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(() => {
+      checkDarkMode();
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const [navbarShow, setNavbarShow] = useState(false);
   const { isHeaderShow, setIsHeaderShow } = useHeaderStore();
   useEffect(() => {
@@ -37,12 +55,21 @@ const HomeNavbar = ({
           </div>
           <div className="w-2/12 flex justify-center">
             <div className="w-[48px] h-[56px] relative z-[30]">
-              <Image
-                src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}
-                alt="sidrat-almuntaha-logo"
-                fill
-                objectFit="contain"
-              />
+              {isDarkMode ? (
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}
+                  alt="sidrat-almuntaha-logo"
+                  fill
+                  objectFit="contain"
+                />
+              ) : (
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoDarkUrl}`}
+                  alt="sidrat-almuntaha-logo"
+                  fill
+                  objectFit="contain"
+                />
+              )}
             </div>
           </div>
           <div className="w-5/12 flex justify-end">
