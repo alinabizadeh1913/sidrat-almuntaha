@@ -7,6 +7,7 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./public/svg/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       screens: {

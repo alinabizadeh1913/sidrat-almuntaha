@@ -3,27 +3,27 @@
 @tailwind utilities;
 @tailwind variants;
 .text-primary {
+  color: #181512;
+}
+
+.dark .text-primary {
   color: #fdc882;
 }
 
 .text-secondary {
+  color: #201c18;
+}
+
+.dark .text-secondary {
   color: #ead6b2;
 }
 
 .text-tertiary {
+  color: #312e2a;
+}
+
+.dark .text-tertiary {
   color: #ffe4bf;
-}
-
-.text-primary-dark {
-  color: #181512;
-}
-
-.text-secondary-dark {
-  color: #201c18;
-}
-
-.text-tertiary-dark {
-  color: #27221d;
 }
 
 .text-quran {
@@ -35,43 +35,35 @@
 }
 
 .bg-primary {
+  background-color: #181512;
+}
+
+.dark .bg-primary {
   background-color: #fdc882;
 }
 
 .bg-secondary {
+  background-color: #201c18;
+}
+
+.dark .bg-secondary {
   background-color: #ead6b2;
 }
 
 .bg-tertiary {
+  background-color: #312e2a;
+}
+
+.dark .bg-tertiary {
   background-color: #ffe4bf;
 }
 
-.bg-primary-dark {
-  background-color: #181512;
-}
-
-.bg-secondary-dark {
-  background-color: #201c18;
-}
-
-.bg-tertiary-dark {
-  background-color: #27221d;
-}
-
-.bg-linear {
-  background: linear-gradient(135deg, #191919, #292b2e);
-}
-
 .line-bg {
-  background: linear-gradient(to bottom, #f8c279, #ac8654, #151616);
-}
-
-.line-bg-dark {
   background: linear-gradient(to bottom, #181512, #585149, #fff);
 }
 
-.bg-overlay-1 {
-  background: linear-gradient(to bottom, rgba(12, 12, 12, 0), rgba(12, 12, 12, 0), #0c0c0c);
+.dark .line-bg {
+  background: linear-gradient(to bottom, #f8c279, #ac8654, #151616);
 }
 
 .button-hover .icon-wrapper {
@@ -80,17 +72,12 @@
 }
 
 .button-hover:hover {
-  background-color: rgba(240, 197, 139, 0.05);
+  background-color: rgba(29, 25, 19, 0.05);
   box-shadow: 0 4px 6px rgba(248, 194, 121, 0.15);
 }
 
-.button-hover-dark .icon-wrapper {
-  margin-inline-start: 16px;
-  transition: 0.1313s ease;
-}
-
-.button-hover-dark:hover {
-  background-color: rgba(29, 25, 19, 0.05);
+.dark .button-hover:hover {
+  background-color: rgba(240, 197, 139, 0.05);
   box-shadow: 0 4px 6px rgba(39, 32, 21, 0.15);
 }
 
@@ -103,26 +90,34 @@
   }
 }
 .border-primary {
+  border: 1px solid #554E48;
+}
+
+.dark .border-primary {
   border: 1px solid rgba(255, 243, 226, 0.2509803922);
 }
 
 .border-secondary {
-  border: 1px solid #fdc882;
-}
-
-.border-primary-dark {
-  border: 1px solid #b8aea4;
-}
-
-.border-secondary-dark {
   border: 1px solid #181512;
 }
 
+.dark .border-secondary {
+  border: 1px solid #fdc882;
+}
+
 .border-primary-2 {
+  border: 2px solid #554E48;
+}
+
+.dark .border-primary-2 {
   border: 2px solid rgba(255, 243, 226, 0.2509803922);
 }
 
 .border-secondary-2 {
+  border: 2px solid #181512;
+}
+
+.dark .border-secondary-2 {
   border: 2px solid #fdc882;
 }
 
@@ -385,18 +380,6 @@ body {
   display: inline-block;
   user-select: none;
 }
-.gradient-text-wrapper .gradient-text {
-  color: transparent;
-  background: linear-gradient(180deg, #fda52a, #fae3c3);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-.gradient-text-wrapper .gradient-text-dark {
-  color: transparent;
-  background: linear-gradient(180deg, #181512, #83817e);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
 .gradient-text-wrapper .gradient-text-overlay {
   position: absolute;
   top: 0;
@@ -408,6 +391,20 @@ body {
   background: linear-gradient(290deg, transparent, transparent 16%, #fff 18%, transparent 20%, transparent);
   background-size: 200%;
   background-position: 200% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(180deg, #181512, #83817e);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  color: transparent;
+  background: linear-gradient(180deg, #fda52a, #fae3c3);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -640,6 +637,7 @@ body {
   width: 100%;
   height: 100vh;
   z-index: -1;
+  transition: background-color 0.2313s ease;
 }
 .noise::after {
   background-image: url("/uploads/pictures/noise.png");
@@ -658,7 +656,6 @@ body {
   width: 100%;
   height: 100vh;
   z-index: -1;
-  transition: 1s ease;
 }
 .noise-2::after {
   background-image: url("/uploads/pictures/noise.png");

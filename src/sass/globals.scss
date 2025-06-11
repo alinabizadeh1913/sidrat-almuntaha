@@ -18,7 +18,7 @@ $text-quran: #fff;
 
 $text-primary-dark: #181512;
 $text-secondary-dark: #201c18;
-$text-tertiary-dark: #27221d;
+$text-tertiary-dark: #312e2a;
 
 $bg-primary: #fdc882;
 $bg-secondary: #ead6b2;
@@ -26,14 +26,10 @@ $bg-tertiary: #ffe4bf;
 
 $bg-primary-dark: #181512;
 $bg-secondary-dark: #201c18;
-$bg-tertiary-dark: #27221d;
-
-$bg-linear: linear-gradient(135deg, #191919, #292b2e);
+$bg-tertiary-dark: #312e2a;
 
 $line-bg: linear-gradient(to bottom, #f8c279, #ac8654, #151616);
 $line-bg-dark: linear-gradient(to bottom, #181512, #585149, #fff);
-
-$bg-overlay-1: linear-gradient(to bottom, #0c0c0c00, #0c0c0c00, #0c0c0c);
 
 $button-hover: rgba(240, 197, 139, 0.05);
 $button-hover-dark: rgba(29, 25, 19, 0.05);
@@ -41,33 +37,33 @@ $button-hover-dark: rgba(29, 25, 19, 0.05);
 $border-primary: #fff3e240;
 $border-secondary: #fdc882;
 
-$border-primary-dark: #b8aea4;
+$border-primary-dark: #554E48;
 $border-secondary-dark: #181512;
 
 // Utilities
 
 .text-primary {
+  color: $text-primary-dark;
+}
+
+.dark .text-primary {
   color: $text-primary;
 }
 
 .text-secondary {
+  color: $text-secondary-dark;
+}
+
+.dark .text-secondary {
   color: $text-secondary;
 }
 
 .text-tertiary {
-  color: $text-tertiary;
-}
-
-.text-primary-dark {
-  color: $text-primary-dark;
-}
-
-.text-secondary-dark {
-  color: $text-secondary-dark;
-}
-
-.text-tertiary-dark {
   color: $text-tertiary-dark;
+}
+
+.dark .text-tertiary {
+  color: $text-tertiary;
 }
 
 .text-quran {
@@ -79,43 +75,35 @@ $border-secondary-dark: #181512;
 }
 
 .bg-primary {
+  background-color: $bg-primary-dark;
+}
+
+.dark .bg-primary {
   background-color: $bg-primary;
 }
 
 .bg-secondary {
+  background-color: $bg-secondary-dark;
+}
+
+.dark .bg-secondary {
   background-color: $bg-secondary;
 }
 
 .bg-tertiary {
-  background-color: $bg-tertiary;
-}
-
-.bg-primary-dark {
-  background-color: $bg-primary-dark;
-}
-
-.bg-secondary-dark {
-  background-color: $bg-secondary-dark;
-}
-
-.bg-tertiary-dark {
   background-color: $bg-tertiary-dark;
 }
 
-.bg-linear {
-  background: $bg-linear;
+.dark .bg-tertiary {
+  background-color: $bg-tertiary;
 }
 
 .line-bg {
-  background: $line-bg;
-}
-
-.line-bg-dark {
   background: $line-bg-dark;
 }
 
-.bg-overlay-1 {
-  background: $bg-overlay-1;
+.dark .line-bg {
+  background: $line-bg;
 }
 
 .button-hover {
@@ -126,19 +114,12 @@ $border-secondary-dark: #181512;
 }
 
 .button-hover:hover {
-  background-color: $button-hover;
+  background-color: $button-hover-dark;
   box-shadow: 0 4px 6px rgba(248, 194, 121, 0.15);
 }
 
-.button-hover-dark {
-  .icon-wrapper {
-    margin-inline-start: 16px;
-    transition: 0.1313s ease;
-  }
-}
-
-.button-hover-dark:hover {
-  background-color: $button-hover-dark;
+.dark .button-hover:hover {
+  background-color: $button-hover;
   box-shadow: 0 4px 6px rgba(39, 32, 21, 0.15);
 }
 
@@ -156,26 +137,34 @@ $border-secondary-dark: #181512;
 }
 
 .border-primary {
+  border: 1px solid $border-primary-dark;
+}
+
+.dark .border-primary {
   border: 1px solid $border-primary;
 }
 
 .border-secondary {
-  border: 1px solid $border-secondary;
-}
-
-.border-primary-dark {
-  border: 1px solid $border-primary-dark;
-}
-
-.border-secondary-dark {
   border: 1px solid $border-secondary-dark;
 }
 
+.dark .border-secondary {
+  border: 1px solid $border-secondary;
+}
+
 .border-primary-2 {
+  border: 2px solid $border-primary-dark;
+}
+
+.dark .border-primary-2 {
   border: 2px solid $border-primary;
 }
 
 .border-secondary-2 {
+  border: 2px solid $border-secondary-dark;
+}
+
+.dark .border-secondary-2 {
   border: 2px solid $border-secondary;
 }
 
@@ -485,18 +474,6 @@ body {
   position: relative;
   display: inline-block;
   user-select: none;
-  .gradient-text {
-    color: transparent;
-    background: $text-linear;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-  .gradient-text-dark {
-    color: transparent;
-    background: $text-linear-dark;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
   .gradient-text-overlay {
     position: absolute;
     top: 0;
@@ -518,6 +495,20 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
   }
+}
+
+.gradient-text {
+  color: transparent;
+  background: $text-linear-dark;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  color: transparent;
+  background: $text-linear;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .gradient-text-overlay-rtl {
@@ -797,6 +788,7 @@ body {
   width: 100%;
   height: 100vh;
   z-index: -1;
+  transition: background-color 0.2313s ease;
   &::after {
     background-image: url("/uploads/pictures/noise.png");
     content: "";

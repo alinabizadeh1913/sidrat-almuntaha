@@ -101,7 +101,7 @@ const EternalFall = ({
       ref={EternalFallContainerRef}
       className={`main-section w-full h-[200vh] hidden md:block`}
     >
-      <div className="w-full h-screen sticky top-0 overflow-hidden">
+      <div className="w-full h-screen sticky top-0 overflow-hidden z-[100]">
         <div className="max-w-[1100px] w-full h-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-[24px] 2xl:px-0">
           <div className="w-full flex items-center justify-between">
             <div className="content relative">

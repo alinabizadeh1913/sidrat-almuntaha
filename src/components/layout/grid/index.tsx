@@ -6,27 +6,64 @@ interface Point {
   y: number;
 }
 
-const Grid = ({ zIndex = 0, dark }: { zIndex?: number; dark: boolean }) => {
-  const GRID_SPACING = 110;
-  const RADIUS = 130;
+const Grid = ({ dark }: { dark?: boolean }) => {
+  const [gridSpacing, setGridSpacing] = useState<number>(110);
+  const [radius, setRadius] = useState<number>(130);
+
   const BASE_OPACITY = 0.008;
-  const ACTIVE_OPACITY = dark ? 0.6313 : 0.313;
-  const TRANSITION_TIME = 313;
+  const ACTIVE_OPACITY = dark ? 0.5313 : 0.313;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mouse, setMouse] = useState<Point | null>(null);
+
   const [windowSize, setWindowSize] = useState<{
     width: number;
     height: number;
   }>({ width: 0, height: 0 });
 
   useEffect(() => {
-    const updateSize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    const updateSizeAndGrid = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setWindowSize({ width, height });
+
+      if (width >= 1536) {
+        setGridSpacing(110);
+        setRadius(130);
+      } else if (width >= 1280) {
+        setGridSpacing(100);
+        setRadius(120);
+      } else if (width >= 1024) {
+        setGridSpacing(90);
+        setRadius(110);
+      } else if (width >= 900) {
+        setGridSpacing(80);
+        setRadius(100);
+      } else {
+        setGridSpacing(70);
+        setRadius(90);
+      }
     };
-    updateSize();
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
+
+    updateSizeAndGrid();
+    window.addEventListener("resize", updateSizeAndGrid);
+    return () => window.removeEventListener("resize", updateSizeAndGrid);
+  }, []);
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      setMouse({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleLeave = () => setMouse(null);
+
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("mouseleave", handleLeave);
+    };
   }, []);
 
   useEffect(() => {
@@ -42,8 +79,8 @@ const Grid = ({ zIndex = 0, dark }: { zIndex?: number; dark: boolean }) => {
     ctx.strokeStyle = "rgba(21, 22, 22," + BASE_OPACITY + ")";
     ctx.lineWidth = 0.5;
 
-    for (let x = 0; x <= canvas.width; x += GRID_SPACING) {
-      for (let y = 0; y <= canvas.height; y += GRID_SPACING) {
+    for (let x = 0; x <= canvas.width; x += gridSpacing) {
+      for (let y = 0; y <= canvas.height; y += gridSpacing) {
         const isVertical = true;
         const isHorizontal = true;
 
@@ -52,10 +89,10 @@ const Grid = ({ zIndex = 0, dark }: { zIndex?: number; dark: boolean }) => {
           const dx = x - mouse.x;
           const dy = y - mouse.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < RADIUS) {
+          if (distance < radius) {
             opacity =
               ACTIVE_OPACITY -
-              (distance / RADIUS) * (ACTIVE_OPACITY - BASE_OPACITY);
+              (distance / radius) * (ACTIVE_OPACITY - BASE_OPACITY);
           }
         }
 
@@ -77,12 +114,10 @@ const Grid = ({ zIndex = 0, dark }: { zIndex?: number; dark: boolean }) => {
   }, [mouse, windowSize]);
 
   return (
-    <div style={{ position: "fixed", inset: 0, zIndex: 1 }}>
+    <div className="fixed inset-0 z-0 pointer-events-none">
       <canvas
         ref={canvasRef}
         className="hidden md:block w-full h-full transition-opacity duration-[100ms]"
-        onMouseMove={(e) => setMouse({ x: e.clientX, y: e.clientY })}
-        onMouseLeave={() => setMouse(null)}
       />
     </div>
   );

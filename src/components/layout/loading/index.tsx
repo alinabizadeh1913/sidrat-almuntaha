@@ -97,10 +97,10 @@ const Loading = () => {
           isLoadingShow
             ? "visible opacity-100"
             : "invisible opacity-0"
-        } w-full h-screen fixed z-[1000] top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-[#151515]`}
+        } w-full h-screen fixed z-[1000] top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-[#dbdbdb] dark:bg-[#151515]`}
       >
         <div
-          className="absolute top-0 left-0 h-full bg-[#11110f]"
+          className="absolute top-0 left-0 h-full bg-[#ffffff] dark:bg-[#11110f]"
           style={{
             width: `${progress}%`,
             transition: `width 0.313s ease`,

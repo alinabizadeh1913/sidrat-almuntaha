@@ -176,3 +176,106 @@ export const Arrow = ({ direction }: { direction: "ltr" | "rtl" }) => {
     </svg>
   );
 };
+
+export const Sun = () => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clipPath="url(#clip0_1896_308)">
+        <path
+          d="M10 14.1667C12.3012 14.1667 14.1667 12.3012 14.1667 10C14.1667 7.69881 12.3012 5.83333 10 5.83333C7.69885 5.83333 5.83337 7.69881 5.83337 10C5.83337 12.3012 7.69885 14.1667 10 14.1667Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10 0.833332V2.5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10 17.5V19.1667"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M3.51672 3.51667L4.70006 4.7"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M15.3 15.3L16.4834 16.4833"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M0.833374 10H2.50004"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M17.5 10H19.1667"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M3.51672 16.4833L4.70006 15.3"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M15.3 4.7L16.4834 3.51667"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1896_308">
+          <rect width="20" height="20" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const Moon = () => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17.5 10.6583C17.369 12.0768 16.8366 13.4287 15.9652 14.5557C15.0939 15.6826 13.9196 16.5382 12.5798 17.0221C11.24 17.5061 9.79003 17.5984 8.39962 17.2884C7.00922 16.9784 5.73587 16.2788 4.72856 15.2715C3.72125 14.2642 3.02166 12.9908 2.71163 11.6004C2.4016 10.21 2.49397 8.76007 2.97792 7.42025C3.46188 6.08042 4.3174 4.90614 5.44438 4.03479C6.57137 3.16345 7.9232 2.63109 9.34171 2.5C8.51122 3.62356 8.11158 5.00787 8.21548 6.40118C8.31939 7.79448 8.91992 9.10422 9.90787 10.0922C10.8958 11.0801 12.2056 11.6807 13.5989 11.7846C14.9922 11.8885 16.3765 11.4888 17.5 10.6583Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

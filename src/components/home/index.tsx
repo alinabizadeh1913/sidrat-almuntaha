@@ -13,10 +13,11 @@ import DayOfJudgment from "./mainSection/day_of_judgment";
 import EternalFall from "./mainSection/eternal_fall";
 import EndlessSerenity from "./mainSection/endless_serenity";
 import Lenis from "lenis";
+import Grid from "../layout/grid";
+import Footer from "./footer";
 
 const HomeComponents = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-
   const StoryOfSoilContainerRef = useRef<HTMLDivElement>(null);
   const FourteenInfalliblesContainerRef = useRef<HTMLDivElement>(null);
   const RiseOfDivineReignContainerRef = useRef<HTMLDivElement>(null);
@@ -24,6 +25,24 @@ const HomeComponents = () => {
   const DayOfJudgmentContainerRef = useRef<HTMLDivElement>(null);
   const EternalFallContainerRef = useRef<HTMLDivElement>(null);
   const EndlessSerenityContainerRef = useRef<HTMLDivElement>(null);
+
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setIsDarkMode(!isDark);
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(() => {
+      checkDarkMode();
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -63,6 +82,7 @@ const HomeComponents = () => {
       <EndlessSerenity
         EndlessSerenityContainerRef={EndlessSerenityContainerRef}
       />
+      <Footer />
 
       <SeasonsMobile />
 
@@ -70,7 +90,9 @@ const HomeComponents = () => {
         <MobileFooter />
       </section>
 
-      <div className="noise bg-body" />
+      <div className="noise bg-[#fff] dark:bg-[#0c0c0c]" />
+
+      <Grid dark={isDarkMode} />
     </>
   );
 };

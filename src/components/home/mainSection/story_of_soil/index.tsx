@@ -101,7 +101,7 @@ const StoryOfSoil = ({
       ref={StoryOfSoilContainerRef}
       className={`main-section w-full h-[200vh] hidden md:block`}
     >
-      <div className="w-full h-screen sticky top-0 overflow-hidden">
+      <div className="w-full h-screen sticky top-0 overflow-hidden z-[100]">
         <div className="max-w-[1100px] w-full h-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-[24px] 2xl:px-0">
           <div className="w-full flex items-center justify-between">
             <div className="content relative">
@@ -165,9 +165,9 @@ const StoryOfSoil = ({
                 </div>
               </div>
             </div>
-            <div className="relative z-[50]">
+            <div>
               <motion.figure
-                className={`images overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[420px] xl:h-[540px]`}
+                className={`images relative overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[420px] xl:h-[540px]`}
                 style={{
                   y: imageY,
                   opacity: imageOpacity,
