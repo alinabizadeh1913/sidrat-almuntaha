@@ -7,7 +7,6 @@ import MainMenu from "./navbar/mainMenu";
 import { GradientText, MainText } from "@/components/layout/text";
 import headerData from "@/database/header.json";
 import { useStore, useLoadingStore, useHeaderStore } from "@/store";
-import Grid from "@/components/layout/grid";
 import Typewriter from "@/components/layout/typewriter";
 
 const { header } = headerData;

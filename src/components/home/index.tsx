@@ -12,7 +12,6 @@ import SuspendedHouse from "./mainSection/suspended_house";
 import DayOfJudgment from "./mainSection/day_of_judgment";
 import EternalFall from "./mainSection/eternal_fall";
 import EndlessSerenity from "./mainSection/endless_serenity";
-import Lenis from "lenis";
 import Grid from "../layout/grid";
 import Footer from "./footer";
 import ScrollToTop from "./fixedItem/scrollToTop";
@@ -46,23 +45,6 @@ const HomeComponents = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 2.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => lenis.destroy();
-  }, []);
-
   return (
     <>
       <section className="block md:hidden pb-9 px-[32px] z-[100] relative">
@@ -70,6 +52,14 @@ const HomeComponents = () => {
       </section>
 
       <Header />
+
+      <section
+        className="pb-9 px-[32px] md:px-[48px] lg:px-[64px] fixed z-[250] bottom-0 left-0 right-0 w-full flex justify-between"
+        dir="ltr"
+      >
+        <ScrollToTop />
+        <PlayMusic />
+      </section>
 
       <StoryOfSoil StoryOfSoilContainerRef={StoryOfSoilContainerRef} />
       <FourteenInfallibles
@@ -84,7 +74,8 @@ const HomeComponents = () => {
       <EndlessSerenity
         EndlessSerenityContainerRef={EndlessSerenityContainerRef}
       />
-      <Footer />
+
+      {/* <Footer /> */}
 
       <SeasonsMobile />
 
@@ -93,14 +84,6 @@ const HomeComponents = () => {
       </section>
 
       <div className="noise bg-[#fff] dark:bg-[#0c0c0c]" />
-
-      <section
-        className="pb-9 px-[32px] md:px-[48px] lg:px-[64px] fixed z-[250] bottom-0 left-0 right-0 w-full flex justify-between"
-        dir="ltr"
-      >
-        <ScrollToTop />
-        <PlayMusic />
-      </section>
 
       <Grid dark={isDarkMode} />
     </>

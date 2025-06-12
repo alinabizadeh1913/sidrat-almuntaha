@@ -54,7 +54,7 @@ const HomeNavbar = ({
             <SearchBox />
           </div>
           <div className="w-2/12 flex justify-center">
-            <div className="w-[48px] h-[56px] relative z-[30]">
+            <div className="w-[48px] h-[56px] relative z-[30] select-none">
               {isDarkMode ? (
                 <Image
                   src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}

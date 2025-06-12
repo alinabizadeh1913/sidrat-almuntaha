@@ -84,20 +84,23 @@ export const Globe = () => {
       className="w-[26px] h-[26px] md:w-[20px] md:h-[20px]"
     >
       <path
-        d="M10.0003 18.3333C14.6027 18.3333 18.3337 14.6024 18.3337 10C18.3337 5.39763 14.6027 1.66667 10.0003 1.66667C5.39795 1.66667 1.66699 5.39763 1.66699 10C1.66699 14.6024 5.39795 18.3333 10.0003 18.3333Z"
+        d="M10.0001 18.3333C14.6025 18.3333 18.3334 14.6024 18.3334 10C18.3334 5.39763 14.6025 1.66667 10.0001 1.66667C5.39771 1.66667 1.66675 5.39763 1.66675 10C1.66675 14.6024 5.39771 18.3333 10.0001 18.3333Z"
         stroke="currentColor"
+        strokeWidth="1.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M1.66699 10H18.3337"
+        d="M1.66675 10H18.3334"
         stroke="currentColor"
+        strokeWidth="1.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M10.0003 1.66667C12.0847 3.94863 13.2693 6.91003 13.3337 10C13.2693 13.09 12.0847 16.0514 10.0003 18.3333C7.91593 16.0514 6.73136 13.09 6.66699 10C6.73136 6.91003 7.91593 3.94863 10.0003 1.66667Z"
+        d="M10.0001 1.66667C12.0845 3.94863 13.269 6.91003 13.3334 10C13.269 13.09 12.0845 16.0514 10.0001 18.3333C7.91568 16.0514 6.73112 13.09 6.66675 10C6.73112 6.91003 7.91568 3.94863 10.0001 1.66667Z"
         stroke="currentColor"
+        strokeWidth="1.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -108,7 +111,7 @@ export const Globe = () => {
 export const Search = ({ direction }: { direction: "ltr" | "rtl" }) => {
   return (
     <svg
-      viewBox="0 0 14 14"
+      viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="w-[23px] h-[23px] md:w-[18px] md:h-[18px]"
@@ -117,14 +120,16 @@ export const Search = ({ direction }: { direction: "ltr" | "rtl" }) => {
       }}
     >
       <path
-        d="M7.66671 11.6666C4.72122 11.6666 2.33342 9.27878 2.33342 6.33329C2.33342 3.38779 4.72122 1 7.66671 1C10.6122 1 13 3.38779 13 6.33329C13 9.27878 10.6122 11.6666 7.66671 11.6666Z"
+        d="M8.77783 13.4443C5.34142 13.4443 2.55566 10.6586 2.55566 7.22217C2.55566 3.78576 5.34142 1 8.77783 1C12.2142 1 15 3.78576 15 7.22217C15 10.6586 12.2142 13.4443 8.77783 13.4443Z"
         stroke="currentColor"
+        strokeWidth="1.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M1.00041 13L3.90039 10.1"
+        d="M0.999995 15L4.3833 11.6167"
         stroke="currentColor"
+        strokeWidth="1.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -277,5 +282,183 @@ export const Moon = () => {
         strokeLinejoin="round"
       />
     </svg>
+  );
+};
+
+export const Volume = ({ isSoundOn = true }: { isSoundOn?: boolean }) => {
+  return (
+    <>
+      {isSoundOn ? (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11 5L6 9H2V15H6L11 19V5Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M23 9L17 15"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M17 9L23 15"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11 5L6 9H2V15H6L11 19V5Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M19.07 4.92999C20.9448 6.80527 21.9979 9.34835 21.9979 12C21.9979 14.6516 20.9448 17.1947 19.07 19.07M15.54 8.45999C16.4774 9.39763 17.004 10.6692 17.004 11.995C17.004 13.3208 16.4774 14.5924 15.54 15.53"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
+    </>
+  );
+};
+
+export const ScrollTop = () => {
+  return (
+    <>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18 10.5L12 4.5L6 10.5"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M18 19.5L12 13.5L6 19.5"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </>
+  );
+};
+
+export const Leaf = () => {
+  return (
+    <>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 200 200"
+        width="64"
+        height="64"
+        className="animate-pulse"
+      >
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#00FFC3" stopOpacity="1" />
+            <stop offset="100%" stopColor="#007A5E" stopOpacity="0.2" />
+          </radialGradient>
+          <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <path
+          d="M100,10 
+       C60,40 40,100 60,150 
+       C80,190 120,190 140,150 
+       C160,100 140,40 100,10 Z"
+          fill="url(#glow)"
+          stroke="#00FFD1"
+          strokeWidth="2"
+          filter="url(#glowFilter)"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 100 100"
+            to="360 100 100"
+            dur="20s"
+            repeatCount="indefinite"
+          />
+        </path>
+
+        <circle
+          cx="100"
+          cy="100"
+          r="70"
+          fill="none"
+          stroke="#00FFC3"
+          strokeWidth="1"
+          strokeDasharray="10 10"
+          strokeOpacity="0.5"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 100 100"
+            to="360 100 100"
+            dur="12s"
+            repeatCount="indefinite"
+          />
+        </circle>
+
+        <circle
+          cx="100"
+          cy="100"
+          r="50"
+          fill="none"
+          stroke="#00FFD1"
+          strokeWidth="1"
+          strokeDasharray="5 5"
+          strokeOpacity="0.3"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="360 100 100"
+            to="0 100 100"
+            dur="8s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </svg>
+    </>
   );
 };

@@ -4,6 +4,7 @@
     "faviconDarkUrl": "pictures/logo/favicon-dark.png",
     "logoUrl": "pictures/logo/logo.png",
     "logoDarkUrl": "pictures/logo/logo-dark.png",
-    "profileUrl": "pictures/logo/profile.png"
+    "profileUrl": "pictures/logo/profile.png",
+    "backgroundMusic": "sounds/BackgroundMusic.mp3"
   }
 }
