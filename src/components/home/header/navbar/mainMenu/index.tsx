@@ -2,7 +2,8 @@
 
 import Section from "@/components/layout/section";
 import { useHeaderStore } from "@/store";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const MainMenu = ({
   isMenuOpen,
@@ -12,36 +13,111 @@ const MainMenu = ({
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const { setIsHeaderShow } = useHeaderStore();
-  // const [screenWidth, setScreenWidth] = useState<number>();
 
-  // useEffect(() => {
-  //   setScreenWidth(window.innerWidth);
-  // }, [window.innerWidth]);
+  const [animationPhase, setAnimationPhase] = useState<
+    "closed" | "opening" | "open" | "closing" | "hidden"
+  >("closed");
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      setAnimationPhase("opening");
+      const openTimeout = setTimeout(() => setAnimationPhase("open"), 10);
+      return () => clearTimeout(openTimeout);
+    } else if (animationPhase === "open") {
+      setAnimationPhase("closing");
+      const closeTimeout = setTimeout(() => {
+        setAnimationPhase("hidden");
+        setIsHeaderShow(true);
+      }, 700);
+      return () => clearTimeout(closeTimeout);
+    }
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const body = document.body;
+    if (!isMenuOpen) {
+      body.classList.remove("overflow-hidden");
+    } else {
+      body.classList.add("overflow-hidden");
+    }
+  }, [isMenuOpen]);
+
+  const getTranslateClass = () => {
+    switch (animationPhase) {
+      case "closed":
+      case "hidden":
+        return "translate-y-[-100%] duration-700 transition-transform";
+      case "opening":
+      case "open":
+        return "translate-y-0 duration-700 transition-transform";
+      case "closing":
+        return "translate-y-[100%] duration-700 transition-transform";
+      default:
+        return "";
+    }
+  };
+
+  const getOpacityClass = () => {
+    switch (animationPhase) {
+      case "opening":
+      case "open":
+        return "opacity-100 pointer-events-auto";
+      case "closing":
+        return "opacity-0 delay-[550ms] pointer-events-none";
+      case "closed":
+      case "hidden":
+        return "opacity-0 delay-[550ms] pointer-events-none";
+      default:
+        return "opacity-0 pointer-events-none";
+    }
+  };
 
   return (
     <Section
       identifier="main-menu"
-      className={`${
-        isMenuOpen ? "translate-y-0" : "translate-y-[-100%]"
-      } absolute top-0 left-0 right-0 w-full h-full z-[150] bg-body hidden md:block`}
+      className={`
+        fixed top-0 left-0 right-0 w-full h-full z-[2500]
+        
+        ${getTranslateClass()}
+        
+      `}
     >
       <div
-        className={`main-menu-inner w-full h-full flex items-center justify-center ${
-          isMenuOpen
-            ? "visible opacity-100 delay-700 duration-500"
-            : "invisible opacity-0 duration-500"
-        }`}
+        className={`main-menu-inner w-full h-full flex items-center justify-center bg-[#ffffff] dark:bg-[#111111] ${getOpacityClass()}`}
       >
-        <button
-          className="text-white text-8xl"
-          onClick={() => {
-            setIsMenuOpen(false);
-            setIsHeaderShow(true);
-          }}
+        <Link
+          href="#story-of-soil"
+          className={`text-black dark:text-white text-8xl ${
+            animationPhase == "open"
+              ? "opacity-100 visible"
+              : "opacity-0 invisible"
+          } duration-300`}
+          onClick={() => setIsMenuOpen(false)}
         >
-          Click Here
-          {/* Screen Width : {screenWidth} */}
-        </button>
+          Story Of Soil
+        </Link>
+        <Link
+          href="#fourteen-infallibles"
+          className={`text-black dark:text-white text-8xl ${
+            animationPhase == "open"
+              ? "opacity-100 visible"
+              : "opacity-0 invisible"
+          } duration-300`}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Forteen Infallibles
+        </Link>
+        <Link
+          href="#rise-of-divine-reign"
+          className={`text-black dark:text-white text-8xl ${
+            animationPhase == "open"
+              ? "opacity-100 visible"
+              : "opacity-0 invisible"
+          } duration-300`}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Rise Of Divine Reign
+        </Link>
       </div>
     </Section>
   );

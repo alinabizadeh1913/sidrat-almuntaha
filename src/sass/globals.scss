@@ -37,7 +37,7 @@ $button-hover-dark: rgba(29, 25, 19, 0.05);
 $border-primary: #fff3e240;
 $border-secondary: #fdc882;
 
-$border-primary-dark: #554E48;
+$border-primary-dark: #554e48;
 $border-secondary-dark: #181512;
 
 // Utilities
@@ -246,6 +246,10 @@ $border-secondary-dark: #181512;
 }
 
 // Font Size
+
+html {
+  scroll-behavior: smooth;
+}
 
 * {
   font-size: 0.85rem;
@@ -587,10 +591,6 @@ body {
 
 // Main Menu
 
-#main-menu {
-  transition: 0.4313s ease;
-}
-
 #main-section {
   transition: 0.5s ease;
 }
@@ -788,7 +788,6 @@ body {
   width: 100%;
   height: 100vh;
   z-index: -1;
-  transition: background-color 0.2313s ease;
   &::after {
     background-image: url("/uploads/pictures/noise.png");
     content: "";

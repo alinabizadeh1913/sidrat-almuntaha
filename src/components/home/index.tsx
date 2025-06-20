@@ -48,16 +48,15 @@ const HomeComponents = () => {
   return (
     <>
       <section className="block md:hidden pb-9 px-[32px] z-[100] relative">
-        <HomeNavbar setIsMenuOpen={setIsMenuOpen} />
+        <HomeNavbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </section>
 
       <Header />
 
-      <section
-        className="pb-9 px-[32px] md:px-[48px] lg:px-[64px] fixed z-[250] bottom-0 left-0 right-0 w-full flex justify-between"
-        dir="ltr"
-      >
+      <section className="pb-9 px-[32px] md:px-[48px] lg:px-[64px] fixed z-[250] bottom-0 left-0">
         <ScrollToTop />
+      </section>
+      <section className="pb-9 px-[32px] md:px-[48px] lg:px-[64px] fixed z-[250] bottom-0 right-0">
         <PlayMusic />
       </section>
 

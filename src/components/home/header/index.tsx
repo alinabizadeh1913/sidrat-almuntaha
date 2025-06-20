@@ -23,7 +23,7 @@ const Header = () => {
       className="flex flex-col md:h-screen md:overflow-hidden relative"
     >
       <section className="hidden md:block md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[64px]">
-        <HomeNavbar setIsMenuOpen={setIsMenuOpen} />
+        <HomeNavbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </section>
 
       <MainMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />

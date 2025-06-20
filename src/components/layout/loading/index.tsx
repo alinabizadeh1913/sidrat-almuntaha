@@ -99,29 +99,22 @@ const Loading = () => {
                   : "w-[48px] h-[56px] delay-[650ms]"
               } relative z-[1050] duration-[1000ms]`}
             >
-              {isDarkMode ? (
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoUrl}`}
-                  alt="logo"
-                  fill
-                  objectFit="cover"
-                  style={{
-                    opacity: `${progress}%`,
-                    transition: `opacity 0.313s ease`,
-                  }}
-                />
-              ) : (
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${settings.logoDarkUrl}`}
-                  alt="logo"
-                  fill
-                  objectFit="cover"
-                  style={{
-                    opacity: `${progress}%`,
-                    transition: `opacity 0.313s ease`,
-                  }}
-                />
-              )}
+              <Image
+                src={`${
+                  isDarkMode
+                    ? process.env.NEXT_PUBLIC_UPLOADS_BASE_URL +
+                      settings.logoUrl
+                    : process.env.NEXT_PUBLIC_UPLOADS_BASE_URL +
+                      settings.logoDarkUrl
+                }`}
+                alt="logo"
+                fill
+                objectFit="cover"
+                style={{
+                  opacity: `${progress}%`,
+                  transition: `opacity 0.313s ease`,
+                }}
+              />
             </div>
           </div>
         </div>

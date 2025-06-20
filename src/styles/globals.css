@@ -90,7 +90,7 @@
   }
 }
 .border-primary {
-  border: 1px solid #554E48;
+  border: 1px solid #554e48;
 }
 
 .dark .border-primary {
@@ -106,7 +106,7 @@
 }
 
 .border-primary-2 {
-  border: 2px solid #554E48;
+  border: 2px solid #554e48;
 }
 
 .dark .border-primary-2 {
@@ -167,6 +167,10 @@
 
 .biotif-regular {
   font-family: "en-biotif-regular";
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -473,10 +477,6 @@ body {
     transform: rotate(360deg);
   }
 }
-#main-menu {
-  transition: 0.4313s ease;
-}
-
 #main-section {
   transition: 0.5s ease;
 }
@@ -637,7 +637,6 @@ body {
   width: 100%;
   height: 100vh;
   z-index: -1;
-  transition: background-color 0.2313s ease;
 }
 .noise::after {
   background-image: url("/uploads/pictures/noise.png");

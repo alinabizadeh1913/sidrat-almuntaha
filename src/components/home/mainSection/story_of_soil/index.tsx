@@ -100,6 +100,7 @@ const StoryOfSoil = ({
     <div
       ref={StoryOfSoilContainerRef}
       className={`main-section w-full h-[200vh] hidden md:block`}
+      id="story-of-soil"
     >
       <div className="w-full h-screen sticky top-0 overflow-hidden z-[100]">
         <div className="max-w-[1100px] w-full h-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-[24px] 2xl:px-0">
@@ -158,7 +159,7 @@ const StoryOfSoil = ({
                       opacity: buttonOpacity,
                     }}
                   >
-                    <Link href={seasons[0].href} className="block">
+                    <Link href={seasons[0].href} className="block w-fit">
                       <Button lang={language} />
                     </Link>
                   </motion.div>
@@ -166,56 +167,58 @@ const StoryOfSoil = ({
               </div>
             </div>
             <div>
-              <motion.figure
-                className={`images relative overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[420px] xl:h-[540px]`}
-                style={{
-                  y: imageY,
-                  opacity: imageOpacity,
-                  scale: useSpring(
-                    useTransform(
-                      scrollYProgress,
-                      [0, 0.3, 0.7, 0.8],
-                      [0.95, 1, 1, 0.95]
+              <Link href={seasons[0].href}>
+                <motion.figure
+                  className={`images relative overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[420px] xl:h-[540px]`}
+                  style={{
+                    y: imageY,
+                    opacity: imageOpacity,
+                    scale: useSpring(
+                      useTransform(
+                        scrollYProgress,
+                        [0, 0.3, 0.7, 0.8],
+                        [0.95, 1, 1, 0.95]
+                      ),
+                      springConfig
                     ),
-                    springConfig
-                  ),
-                }}
-              >
-                <motion.div
-                  style={{
-                    opacity: firstImageOpacity,
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
                   }}
                 >
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[0].imageUrls[0]}`}
-                    alt={seasons[0].slug}
-                    fill
-                    objectFit="cover"
-                    className="mask-image"
-                  />
-                </motion.div>
-                <motion.div
-                  style={{
-                    opacity: secondImageOpacity,
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                  }}
-                >
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[0].imageUrls[1]}`}
-                    alt={seasons[0].slug}
-                    fill
-                    objectFit="cover"
-                    className="mask-image"
-                  />
-                </motion.div>
-              </motion.figure>
+                  <motion.div
+                    style={{
+                      opacity: firstImageOpacity,
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[0].imageUrls[0]}`}
+                      alt={seasons[0].slug}
+                      fill
+                      objectFit="cover"
+                      className="mask-image"
+                    />
+                  </motion.div>
+                  <motion.div
+                    style={{
+                      opacity: secondImageOpacity,
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_UPLOADS_BASE_URL}${seasons[0].imageUrls[1]}`}
+                      alt={seasons[0].slug}
+                      fill
+                      objectFit="cover"
+                      className="mask-image"
+                    />
+                  </motion.div>
+                </motion.figure>
+              </Link>
             </div>
           </div>
         </div>

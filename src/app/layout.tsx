@@ -1,16 +1,10 @@
 import Layout from "@/components/layout";
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "../styles/globals.css";
 import Script from "next/script";
 import settingsData from "../database/settings.json";
 
 const { settings } = settingsData;
-
-const Font = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Sidrat Almuntaha | سِدْرَةِ الْمُنْتَهَى",
@@ -24,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="ltr">
-      <body className={`${Font.className} antialiased overflow-hidden`}>
+      <body className={`antialiased overflow-hidden`}>
         <Layout>{children}</Layout>
 
         <Script id="dynamic-favicon" strategy="afterInteractive">
