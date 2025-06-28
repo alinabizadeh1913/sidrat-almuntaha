@@ -22,7 +22,7 @@ const Header = () => {
       identifier="header"
       className="flex flex-col md:h-screen md:overflow-hidden relative"
     >
-      <section className="hidden md:block md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[64px]">
+      <section className="hidden md:block md:pb-0 px-[32px] sm:px-[40px] md:px-[48px] lg:px-[56px]">
         <HomeNavbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </section>
 
@@ -37,7 +37,7 @@ const Header = () => {
             className={`glow-bofrder duration-500 delay-700 ease-out h-full`}
           ></div> */}
           <section
-            className={`w-full h-full md:px-[16px] rounded-[25px] flex items-center`}
+            className={`w-full h-full md:px-[16px] flex items-center`}
           >
             <section className="w-full">
               <section className="flex justify-center">
@@ -47,7 +47,7 @@ const Header = () => {
                   className={`${
                     language == "en"
                       ? "main-section-title-ltr md:text-[40px]"
-                      : "main-section-title-rtl md:text-[40px]"
+                      : "main-section-title-rtl md:text-[36px]"
                   }`}
                 >
                   {language == "ar"
@@ -62,10 +62,10 @@ const Header = () => {
                   weight="regular"
                   lang={language}
                   align={"center"}
-                  className={`text-tertiary ${
+                  className={`text-tertiary leading-[32px] sm:leading-[36px] ${
                     language == "en"
-                      ? "my-4 text-[18px] sm:text-[20px] leading-[32px] sm:leading-[36px]"
-                      : "my-4 text-[16px] sm:text-[18px] leading-[32px] sm:leading-[36px]"
+                      ? "my-4 text-[18px] sm:text-[20px]"
+                      : "my-4 text-[16px] sm:text-[18px]"
                   }`}
                 >
                   {language == "ar"

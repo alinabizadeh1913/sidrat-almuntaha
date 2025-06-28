@@ -5,7 +5,7 @@ import seasonsData from "@/database/seasons.json";
 import { MainSectionDescription, MainSectionTitle } from "..";
 import { useStore } from "@/store";
 import Link from "next/link";
-import Button from "@/components/layout/button";
+import { SeasonButton } from "@/components/layout/button";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
@@ -89,7 +89,7 @@ const SeasonsMobile = () => {
               </div>
               <div className="mobile-button-container">
                 <Link href={season.href} className="button-hover block w-full">
-                  <Button lang={language} />
+                  <SeasonButton lang={language} />
                 </Link>
               </div>
             </div>

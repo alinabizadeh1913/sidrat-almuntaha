@@ -72,12 +72,10 @@
 }
 
 .button-hover:hover {
-  background-color: rgba(29, 25, 19, 0.05);
   box-shadow: 0 4px 6px rgba(39, 32, 21, 0.15);
 }
 
 .dark .button-hover:hover {
-  background-color: rgba(240, 197, 139, 0.05);
   box-shadow: 0 4px 6px rgba(248, 194, 121, 0.15);
 }
 

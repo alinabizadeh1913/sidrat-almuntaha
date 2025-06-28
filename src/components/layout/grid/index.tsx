@@ -74,6 +74,7 @@ const Grid = ({ dark }: { dark?: boolean }) => {
     ctx.lineWidth = 0.213;
 
     const offsetX = (canvas.width % gridSpacing) / 2;
+    const offsetY = (canvas.height % gridSpacing) / 2;
 
     // Guidance : for (let x = 0; x <= canvas.width; x += gridSpacing) {}
 
@@ -112,7 +113,7 @@ const Grid = ({ dark }: { dark?: boolean }) => {
     // }, [mouse, windowSize]);
 
     for (let x = offsetX; x <= canvas.width; x += gridSpacing) {
-      for (let y = 0; y <= canvas.height; y += gridSpacing) {
+      for (let y = offsetY; y <= canvas.height; y += gridSpacing) {
         let opacity = BASE_OPACITY;
         if (mouse) {
           const dx = x - mouse.x;

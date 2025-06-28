@@ -114,12 +114,10 @@ $border-secondary-dark: #181512;
 }
 
 .button-hover:hover {
-  background-color: $button-hover-dark;
   box-shadow: 0 4px 6px rgba(39, 32, 21, 0.15);
 }
 
 .dark .button-hover:hover {
-  background-color: $button-hover;
   box-shadow: 0 4px 6px rgba(248, 194, 121, 0.15);
 }
 

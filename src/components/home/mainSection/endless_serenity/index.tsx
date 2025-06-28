@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/layout/button";
+import { SeasonButton } from "@/components/layout/button";
 import { useEffect, useState, useRef } from "react";
 import { MainSectionDescription, MainSectionTitle } from "..";
 import seasonsData from "@/database/seasons.json";
@@ -103,7 +103,7 @@ const EndlessSerenity = ({
       id="endless-serenity"
     >
       <div className="w-full h-screen sticky top-0 overflow-hidden z-[100]">
-        <div className="max-w-[1100px] w-full h-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-[24px] 2xl:px-0">
+        <div className="max-w-[1100px] w-full h-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-0">
           <div className="w-full flex items-center justify-between">
             <div className="content relative">
               <motion.div
@@ -160,7 +160,7 @@ const EndlessSerenity = ({
                   className={`${
                     language == "en"
                       ? "md:w-[360px] lg:w-[400px] xl:w-[480px]"
-                      : "md:w-[320px] lg:w-[400px]"
+                      : "md:w-[320px] lg:w-[400px] xl:w-[440px]"
                   } description mt-1`}
                   style={{
                     y: descriptionY,
@@ -183,7 +183,7 @@ const EndlessSerenity = ({
                     }}
                   >
                     <Link href={seasons[6].href} className="block w-fit">
-                      <Button lang={language} />
+                      <SeasonButton lang={language} />
                     </Link>
                   </motion.div>
                 </div>
@@ -192,7 +192,7 @@ const EndlessSerenity = ({
             <div className="relative z-[50]">
               <Link href={seasons[6].href}>
                 <motion.figure
-                  className={`images overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[420px] xl:h-[540px]`}
+                  className={`images overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[440px] xl:h-[560px]`}
                   style={{
                     y: imageY,
                     opacity: imageOpacity,
@@ -206,6 +206,7 @@ const EndlessSerenity = ({
                     ),
                   }}
                 >
+                  <div className="copy-not-allowed absolute top-0 right-0 left-0 bottom-0 w-full h-full select-none z-10"></div>
                   <motion.div
                     style={{
                       opacity: firstImageOpacity,

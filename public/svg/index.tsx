@@ -377,88 +377,20 @@ export const ScrollTop = () => {
 
 export const Leaf = () => {
   return (
-    <>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 200 200"
-        width="64"
-        height="64"
-        className="animate-pulse"
-      >
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#00FFC3" stopOpacity="1" />
-            <stop offset="100%" stopColor="#007A5E" stopOpacity="0.2" />
-          </radialGradient>
-          <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        <path
-          d="M100,10 
-       C60,40 40,100 60,150 
-       C80,190 120,190 140,150 
-       C160,100 140,40 100,10 Z"
-          fill="url(#glow)"
-          stroke="#00FFD1"
-          strokeWidth="2"
-          filter="url(#glowFilter)"
-        >
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 100 100"
-            to="360 100 100"
-            dur="20s"
-            repeatCount="indefinite"
-          />
-        </path>
-
-        <circle
-          cx="100"
-          cy="100"
-          r="70"
-          fill="none"
-          stroke="#00FFC3"
-          strokeWidth="1"
-          strokeDasharray="10 10"
-          strokeOpacity="0.5"
-        >
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 100 100"
-            to="360 100 100"
-            dur="12s"
-            repeatCount="indefinite"
-          />
-        </circle>
-
-        <circle
-          cx="100"
-          cy="100"
-          r="50"
-          fill="none"
-          stroke="#00FFD1"
-          strokeWidth="1"
-          strokeDasharray="5 5"
-          strokeOpacity="0.3"
-        >
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="360 100 100"
-            to="0 100 100"
-            dur="8s"
-            repeatCount="indefinite"
-          />
-        </circle>
-      </svg>
-    </>
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M27 27C27 22.8947 24.4 19.6653 19.8605 18.7895C16.4595 18.1326 12.9459 16.0526 11.5405 14.6842M14.3514 25.6316C16.8192 25.6389 19.1996 24.7428 21.0207 23.1211C22.8417 21.4994 23.9703 19.2705 24.1825 16.8766C24.3948 14.4826 23.6752 12.0984 22.1666 10.1968C20.658 8.29522 17.8649 7.22992 15.7568 6.47368C7.74595 3.6 7.32432 3.73684 3.10811 1C1.7027 4.42105 1 6.72 1 11.9474C1 19.4737 7.01514 25.6316 14.3514 25.6316Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 };

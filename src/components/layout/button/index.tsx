@@ -4,24 +4,20 @@ import { useStore } from "@/store";
 import { Arrow } from "../../../../public/svg";
 import Typography from "../typography";
 
-interface ButtonType {
+interface SeasonButtonType {
   dark?: boolean;
   lang: "ar" | "fa" | "en";
 }
 
-const Button = ({ dark, lang }: ButtonType) => {
+export const SeasonButton = ({ dark, lang }: SeasonButtonType) => {
   return (
-    <div
-      className={`${
-        dark ? "text-primary-dark border-secondary-dark button-hover-dark" : "text-primary border-secondary button-hover"
-      } cursor-pointer h-[46px] sm:h-[48px] md:h-[44px] lg:h-[46px] xl:h-[48px] px-[16px] sm:px-[18px] md:px-[20px] lg:px-[22px] xl:px-[24px] rounded-[10px] md:mt-8 flex justify-center md:justify-start items-center w-full md:w-fit duration-300 relative z-[50] select-none`}
-    >
+    <div className="text-primary border-secondary button-hover bg-[#fafafa] dark:bg-[#171717] hover:bg-[#eeeeee] dark:hover:bg-[#1a1a1a] cursor-pointer h-[46px] sm:h-[48px] md:h-[44px] lg:h-[46px] xl:h-[48px] px-[16px] sm:px-[18px] md:px-[20px] lg:px-[22px] xl:px-[24px] rounded-[10px] md:mt-8 flex justify-center md:justify-start items-center w-full md:w-fit duration-300 relative z-[50] select-none">
       <Typography
         className={`${dark ? "text-primary-dark" : "text-primary"} ${
           lang == "ar" || lang == "fa"
             ? "yekan-regular main-section-description-rtl"
             : "biotif-regular pb-[6px] main-section-description-ltr"
-        } md:text-[20px] lg:text-[22px] xl:text-[22px]`}
+        } md:text-[20px] lg:text-[22px]`}
       >
         {lang == "ar"
           ? "خطوة نحو الحقيقة"
@@ -35,5 +31,3 @@ const Button = ({ dark, lang }: ButtonType) => {
     </div>
   );
 };
-
-export default Button;
