@@ -40,7 +40,7 @@ const ChangeTheme = () => {
   return (
     <>
       <div
-        className={`change-theme text-[14px] text-tertiary md:h-[40px] rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] md:px-3 relative z-[30] flex justify-center items-center cursor-pointer md:bg-[#fafafa] md:dark:bg-[#171717] md:hover:bg-[#eeeeee] md:dark:hover:bg-[#1a1a1a]`}
+        className={`change-theme text-[14px] text-tertiary md:h-[40px] rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] md:px-3 relative z-[30] flex justify-center items-center cursor-pointer md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818]`}
         onClick={changeTheme}
       >
         {status === "dark" ? <Sun /> : <Moon />}

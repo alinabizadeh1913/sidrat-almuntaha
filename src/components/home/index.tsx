@@ -53,10 +53,10 @@ const HomeComponents = () => {
 
       <Header />
 
-      <section className="pb-9 px-[32px] md:px-[48px] lg:px-[56px] fixed z-[250] bottom-0 left-0">
+      <section className="pb-7 px-[32px] md:px-[48px] lg:px-[56px] fixed z-[250] bottom-0 left-0">
         <ScrollToTop />
       </section>
-      <section className="pb-9 px-[32px] md:px-[48px] lg:px-[56px] fixed z-[250] bottom-0 right-0">
+      <section className="pb-7 px-[32px] md:px-[48px] lg:px-[56px] fixed z-[250] bottom-0 right-0">
         <PlayMusic />
       </section>
 

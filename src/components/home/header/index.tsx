@@ -36,9 +36,7 @@ const Header = () => {
           {/* <div
             className={`glow-bofrder duration-500 delay-700 ease-out h-full`}
           ></div> */}
-          <section
-            className={`w-full h-full md:px-[16px] flex items-center`}
-          >
+          <section className={`w-full h-full md:px-[16px] flex items-center`}>
             <section className="w-full">
               <section className="flex justify-center">
                 <GradientText
@@ -46,8 +44,8 @@ const Header = () => {
                   lang={language}
                   className={`${
                     language == "en"
-                      ? "main-section-title-ltr md:text-[40px]"
-                      : "main-section-title-rtl md:text-[36px]"
+                      ? "main-section-title-ltr md:text-[36px]"
+                      : "main-section-title-rtl md:text-[34px]"
                   }`}
                 >
                   {language == "ar"
@@ -62,10 +60,10 @@ const Header = () => {
                   weight="regular"
                   lang={language}
                   align={"center"}
-                  className={`text-tertiary leading-[32px] sm:leading-[36px] ${
+                  className={`text-tertiary my-4 leading-[32px] sm:leading-[36px] ${
                     language == "en"
-                      ? "my-4 text-[18px] sm:text-[20px]"
-                      : "my-4 text-[16px] sm:text-[18px]"
+                      ? "text-[18px] sm:text-[20px]"
+                      : "text-[16px] sm:text-[18px]"
                   }`}
                 >
                   {language == "ar"
@@ -83,10 +81,8 @@ const Header = () => {
                   weight="regular"
                   lang={language}
                   delay={randomDuration + 1100}
-                  className={`text-tertiary text-center ${
-                    language == "en"
-                      ? "my-4 md:my-5 lg:my-6 text-[22px] leading-[40px]"
-                      : "my-4 md:my-5 lg:my-6 text-[20px] leading-[40px]"
+                  className={`text-tertiary text-center my-2 leading-[40px] ${
+                    language == "en" ? "text-[22px]" : "text-[20px]"
                   }`}
                 >
                   {language == "ar"

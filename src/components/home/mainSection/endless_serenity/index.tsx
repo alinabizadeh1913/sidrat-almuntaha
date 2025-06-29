@@ -161,7 +161,7 @@ const EndlessSerenity = ({
                     language == "en"
                       ? "md:w-[360px] lg:w-[400px] xl:w-[480px]"
                       : "md:w-[320px] lg:w-[400px] xl:w-[440px]"
-                  } description mt-1`}
+                  } description mt-2`}
                   style={{
                     y: descriptionY,
                     opacity: descriptionOpacity,

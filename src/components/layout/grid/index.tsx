@@ -7,11 +7,11 @@ interface Point {
 }
 
 const Grid = ({ dark }: { dark?: boolean }) => {
-  const [gridSpacing, setGridSpacing] = useState<number>(110);
-  const [radius, setRadius] = useState<number>(130);
+  const [gridSpacing, setGridSpacing] = useState<number>(105);
+  const [radius, setRadius] = useState<number>(90);
 
   const BASE_OPACITY = 0.006;
-  const ACTIVE_OPACITY = dark ? 1 : 0.6313;
+  const ACTIVE_OPACITY = dark ? 2.5313 : 0.9313;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mouse, setMouse] = useState<Point | null>(null);
@@ -26,17 +26,6 @@ const Grid = ({ dark }: { dark?: boolean }) => {
       const width = window.innerWidth;
       const height = window.innerHeight;
       setWindowSize({ width, height });
-
-      if (width >= 1536) {
-        setGridSpacing(110);
-        setRadius(130);
-      } else if (width >= 1280) {
-        setGridSpacing(100);
-        setRadius(120);
-      } else {
-        setGridSpacing(95);
-        setRadius(115);
-      }
     };
 
     updateSizeAndGrid();
@@ -70,7 +59,7 @@ const Grid = ({ dark }: { dark?: boolean }) => {
     canvas.height = windowSize.height;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = "rgba(21, 22, 22," + BASE_OPACITY + ")";
+    ctx.strokeStyle = "rgba(0, 0, 0," + BASE_OPACITY + ")";
     ctx.lineWidth = 0.213;
 
     const offsetX = (canvas.width % gridSpacing) / 2;

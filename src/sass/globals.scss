@@ -9,7 +9,7 @@
 $body-background: #0c0c0c;
 
 $text-linear: linear-gradient(180deg, #fda52a, #fae3c3);
-$text-linear-dark: linear-gradient(180deg, #181512, #83817e);
+$text-linear-dark: linear-gradient(180deg, #1a1714, #9b9b9b);
 
 $text-primary: #fdc882;
 $text-secondary: #ead6b2;
@@ -29,7 +29,7 @@ $bg-secondary-dark: #201c18;
 $bg-tertiary-dark: #312e2a;
 
 $line-bg: linear-gradient(to bottom, #f8c279, #ac8654, #151616);
-$line-bg-dark: linear-gradient(to bottom, #181512, #585149, #fff);
+$line-bg-dark: linear-gradient(to bottom, #181512, #585149, #f6f6f6);
 
 $button-hover: rgba(240, 197, 139, 0.05);
 $button-hover-dark: rgba(29, 25, 19, 0.05);
@@ -818,23 +818,37 @@ body {
 .mask-image {
   -webkit-mask-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0)
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0, 0, 0),
+    rgb(0, 0, 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0 / 89%),
+    rgb(0 0 0 / 70%),
+    rgb(0 0 0 / 40%),
+    rgb(0 0 0 / 0%)
   );
   mask-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0)
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0, 0, 0),
+    rgb(0, 0, 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0),
+    rgb(0 0 0 / 89%),
+    rgb(0 0 0 / 70%),
+    rgb(0 0 0 / 40%),
+    rgb(0 0 0 / 0%)
   );
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;

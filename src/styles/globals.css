@@ -59,7 +59,7 @@
 }
 
 .line-bg {
-  background: linear-gradient(to bottom, #181512, #585149, #fff);
+  background: linear-gradient(to bottom, #181512, #585149, #f6f6f6);
 }
 
 .dark .line-bg {
@@ -399,7 +399,7 @@ body {
 
 .gradient-text {
   color: transparent;
-  background: linear-gradient(180deg, #181512, #83817e);
+  background: linear-gradient(180deg, #1a1714, #9b9b9b);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -665,8 +665,8 @@ body {
 }
 
 .mask-image {
-  -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
-  mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0.89), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0.89), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;

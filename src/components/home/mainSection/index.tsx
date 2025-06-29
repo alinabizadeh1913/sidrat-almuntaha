@@ -18,7 +18,7 @@ const MainSectionTitle = ({
       <div
         className={`${
           dark ? "gradient-text-dark" : "gradient-text"
-        } md:text-[32px] lg:text-[36px] xl:text-[40px] text-center ${
+        } md:text-[32px] lg:text-[36px] text-center ${
           lang == "fa" || lang == "ar"
             ? "yekan-black main-section-title-rtl"
             : "biotif-bold main-section-title-ltr"
@@ -27,7 +27,7 @@ const MainSectionTitle = ({
         {children}
       </div>
       <div
-        className={`gradient-text-overlay md:text-[32px] lg:text-[36px] xl:text-[40px] text-center ${
+        className={`gradient-text-overlay md:text-[32px] lg:text-[36px] text-center ${
           lang == "fa" || lang == "ar" ? "yekan-black" : "biotif-bold"
         } ${
           active && lang == "en"

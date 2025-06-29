@@ -34,7 +34,7 @@ const ChangeLanguage = () => {
       <div
         className={`change-language md:w-[89px] ${
           language == "en" ? "md:h-[38px]" : "md:h-[40px]"
-        } rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] relative z-[30] md:bg-[#fafafa] md:dark:bg-[#171717] md:hover:bg-[#eeeeee] md:dark:hover:bg-[#1a1a1a]`}
+        } rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] relative z-[30] md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818]`}
         ref={languageRef}
       >
         <div
@@ -57,7 +57,7 @@ const ChangeLanguage = () => {
             isLanguageOpen
               ? "translate-y-0 visible opacity-100"
               : "translate-y-[20px] invisible opacity-0"
-          } absolute top-[155%] md:top-[130%] left-0 right-0 w-[89px] md:w-full border-primary rounded-[10px] pt-[6px] pb-2 flex flex-col gap-y-[6px] bg-[#fafafa] dark:bg-[#171717] duration-300`}
+          } absolute top-[155%] md:top-[130%] left-0 right-0 w-[89px] md:w-full border-primary rounded-[10px] pt-[6px] pb-2 flex flex-col gap-y-[6px] bg-[#f6f6f6] dark:bg-[#151515] duration-300`}
         >
           <div
             className="en-language cursor-pointer"
