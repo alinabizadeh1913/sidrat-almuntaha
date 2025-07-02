@@ -20,7 +20,7 @@ const ScrollToTop = () => {
   return (
     <div
       onClick={handleClick}
-      className={`scroll-to-top text-tertiary md:h-[40px] md:rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] md:px-3 flex justify-center items-center cursor-pointer md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818] transition-opacity duration-300 
+      className={`scroll-to-top text-tertiary md:h-[38px] md:rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] md:px-[10px] flex justify-center items-center cursor-pointer md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818] transition-opacity duration-300 
         ${showButton ? "opacity-100 visible" : "opacity-0 invisible"}`}
     >
       <ScrollTop />

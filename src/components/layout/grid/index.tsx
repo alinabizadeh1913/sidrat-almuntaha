@@ -140,7 +140,7 @@ const Grid = ({ dark }: { dark?: boolean }) => {
     <div className="fixed inset-0 z-0 pointer-events-none">
       <canvas
         ref={canvasRef}
-        className="hidden md:block w-full h-full transition-opacity duration-[100ms]"
+        className="hidden w-full h-full transition-opacity duration-[100ms]"
       />
     </div>
   );

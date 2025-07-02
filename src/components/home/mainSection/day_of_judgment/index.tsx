@@ -32,15 +32,15 @@ const DayOfJudgment = ({
 
   // Transform values with spring physics
   const firstImageOpacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7], [1, 1, 0, 0]),
+    useTransform(scrollYProgress, [0, 0.4, 0.6, 0.8], [1, 1, 0, 0]),
     springConfig
   );
   const secondImageOpacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7], [0, 0, 1, 1]),
+    useTransform(scrollYProgress, [0, 0.4, 0.6, 0.8], [0, 0, 1, 1]),
     springConfig
   );
   const lineHeight = useSpring(
-    useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.7, 1, 1]),
+    useTransform(scrollYProgress, [0.1, 0.3, 0.5, 0.7], [0, 0.7, 1, 1]),
     springConfig
   );
   const lineOpacity = useSpring(
@@ -48,7 +48,7 @@ const DayOfJudgment = ({
     springConfig
   );
   const titleY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2, 0.7, 1], [100, 0, 0, -100]),
+    useTransform(scrollYProgress, [0, 0.2, 0.7, 1], [50, 0, 0, -50]),
     springConfig
   );
   const titleOpacity = useSpring(
@@ -60,7 +60,7 @@ const DayOfJudgment = ({
     springConfig
   );
   const descriptionY = useSpring(
-    useTransform(scrollYProgress, [0.1, 0.3, 0.7, 1], [50, 0, 0, -50]),
+    useTransform(scrollYProgress, [0.1, 0.3, 0.7, 1], [25, 0, 0, -25]),
     springConfig
   );
   const descriptionOpacity = useSpring(
@@ -78,13 +78,13 @@ const DayOfJudgment = ({
   const imageOpacity = useSpring(
     useTransform(
       scrollYProgress,
-      [0, 0.2, 0.7, 0.8],
+      [0.05, 0.2, 0.7, 0.8],
       [initialOpacity, 1, 1, initialOpacity]
     ),
     springConfig
   );
   const buttonY = useSpring(
-    useTransform(scrollYProgress, [0.2, 0.4, 0.7, 1], [30, 0, 0, -30]),
+    useTransform(scrollYProgress, [0.2, 0.4, 0.7, 1], [20, 0, 0, -20]),
     springConfig
   );
   const buttonOpacity = useSpring(
@@ -100,10 +100,10 @@ const DayOfJudgment = ({
     <div
       ref={DayOfJudgmentContainerRef}
       className={`main-section w-full h-[200vh] hidden md:block`}
-      id="day-of-judgment"
+      id="story-of-soil"
     >
       <div className="w-full h-screen sticky top-0 overflow-hidden z-[100]">
-        <div className="max-w-[1100px] w-full h-full m-auto flex justify-center md:px-[56px] lg:px-[64px] xl:px-0">
+        <div className="max-w-[1000px] w-full h-full m-auto flex justify-center md:px-[40px] xl:px-0">
           <div className="w-full flex items-center justify-between">
             <div className="content relative">
               <motion.div
@@ -118,30 +118,7 @@ const DayOfJudgment = ({
                   opacity: lineOpacity,
                 }}
               />
-              <motion.div
-                className={`${
-                  language == "en" ? "left-[5%]" : "right-[5%]"
-                } circle-blur absolute top-0 left-[5%] w-[80px] h-[80px] blur-[90px] 2xl:top-[5%] 2xl:w-[70px] 2xl:h-[70px] 2xl:blur-[60px]`}
-                style={{
-                  scale: useSpring(
-                    useTransform(
-                      scrollYProgress,
-                      [0, 0.2, 0.7, 0.8],
-                      [0.8, 1, 1, 0.8]
-                    ),
-                    springConfig
-                  ),
-                  opacity: useSpring(
-                    useTransform(
-                      scrollYProgress,
-                      [0, 0.2, 0.7, 0.8],
-                      [initialOpacity, 1, 1, initialOpacity]
-                    ),
-                    springConfig
-                  ),
-                }}
-              />
-              <div className="content-inner md:ms-[35px] lg:ms-[39px]">
+              <div className="content-inner md:ms-[31px] lg:ms-[39px]">
                 <motion.div
                   style={{
                     y: titleY,
@@ -157,11 +134,7 @@ const DayOfJudgment = ({
                   </MainSectionTitle>
                 </motion.div>
                 <motion.div
-                  className={`${
-                    language == "en"
-                      ? "md:w-[360px] lg:w-[400px] xl:w-[480px]"
-                      : "md:w-[320px] lg:w-[400px] xl:w-[440px]"
-                  } description mt-2`}
+                  className={`description mt-2 md:w-full md:pe-[60px] lg:pe-[80px] xl:pe-[100px] 2xl:pe-[120px]`}
                   style={{
                     y: descriptionY,
                     opacity: descriptionOpacity,
@@ -189,10 +162,10 @@ const DayOfJudgment = ({
                 </div>
               </div>
             </div>
-            <div className="relative z-[50]">
+            <div>
               <Link href={seasons[4].href}>
                 <motion.figure
-                  className={`images overflow-hidden md:w-[360px] md:h-[480px] lg:w-[400px] lg:h-[520px] xl:w-[440px] xl:h-[560px]`}
+                  className={`images relative overflow-hidden md:w-[380px] md:h-[480px] lg:w-[400px] lg:h-[500px] xl:w-[420px] xl:h-[520px]`}
                   style={{
                     y: imageY,
                     opacity: imageOpacity,

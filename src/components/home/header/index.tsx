@@ -44,8 +44,8 @@ const Header = () => {
                   lang={language}
                   className={`${
                     language == "en"
-                      ? "main-section-title-ltr md:text-[36px]"
-                      : "main-section-title-rtl md:text-[34px]"
+                      ? "main-section-title-ltr md:text-[33px] lg:text-[34px] xl:text-[35px]"
+                      : "main-section-title-rtl md:text-[30px] lg:text-[31px] xl:text-[32px]"
                   }`}
                 >
                   {language == "ar"
@@ -81,8 +81,8 @@ const Header = () => {
                   weight="regular"
                   lang={language}
                   delay={randomDuration + 1100}
-                  className={`text-tertiary text-center my-2 leading-[40px] ${
-                    language == "en" ? "text-[22px]" : "text-[20px]"
+                  className={`text-tertiary text-center my-2 md:leading-[38px] lg:leading-[40px] xl:leading-[42px] ${
+                    language == "en" ? "text-[19.5px] lg:text-[20.5px] xl:text-[21px]" : "text-[18px] lg:text-[18.5px] xl:text-[19px]"
                   }`}
                 >
                   {language == "ar"

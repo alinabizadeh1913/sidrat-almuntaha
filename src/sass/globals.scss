@@ -209,11 +209,8 @@ $border-secondary-dark: #181512;
 // En
 @font-face {
   font-family: "en-biotif-bold";
-  src: url("/fonts/en/BiotifBold/BiotifBold.woff2") format("woff2"),
-    url("/fonts/en/BiotifBold/BiotifBold.woff") format("woff"),
-    url("/fonts/en/BiotifBold/BiotifBold.ttf") format("truetype"),
-    url("/fonts/en/BiotifBold/BiotifBold.eot") format("embedded-opentype"),
-    url("/fonts/en/BiotifBold/BiotifBold.otf") format("opentype");
+  src: url("/fonts/en/TasaorbiterBold.woff2") format("woff2"),
+    
 }
 @font-face {
   font-family: "en-biotif-regular";
@@ -787,6 +784,7 @@ body {
   height: 100vh;
   z-index: -1;
   &::after {
+    // animation: grain 0.7s steps(1) infinite;
     background-image: url("/uploads/pictures/noise.png");
     content: "";
     height: 300%;
@@ -811,6 +809,42 @@ body {
     position: absolute;
     top: -110%;
     width: 300%;
+  }
+}
+
+@keyframes grain {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
   }
 }
 

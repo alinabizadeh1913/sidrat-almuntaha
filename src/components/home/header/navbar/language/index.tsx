@@ -32,9 +32,7 @@ const ChangeLanguage = () => {
   return (
     <>
       <div
-        className={`change-language md:w-[89px] ${
-          language == "en" ? "md:h-[38px]" : "md:h-[40px]"
-        } rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] relative z-[30] md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818]`}
+        className={`change-language md:w-[89px] md:h-[38px] rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] relative z-[30] md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818]`}
         ref={languageRef}
       >
         <div
