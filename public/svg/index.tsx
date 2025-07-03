@@ -108,7 +108,7 @@ export const Globe = () => {
   );
 };
 
-export const Search = ({ direction }: { direction: "ltr" | "rtl" }) => {
+export const Search = ({ direction }: { direction?: "ltr" | "rtl" }) => {
   return (
     <svg
       viewBox="0 0 16 16"

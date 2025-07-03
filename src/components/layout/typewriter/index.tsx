@@ -87,7 +87,7 @@ const Typewriter = ({
         className={`whitespace-pre-wrap break-words select-none ${className} ${
           lang === "ar" || lang === "fa"
             ? `yekan-${weight}`
-            : `biotif-${weight}`
+            : `tasaorbiter-${weight}`
         } ${quran ? "uthman" : ""}`}
       >
         {displayedText}

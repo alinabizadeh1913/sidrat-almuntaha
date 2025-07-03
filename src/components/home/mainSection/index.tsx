@@ -21,14 +21,14 @@ const MainSectionTitle = ({
         } md:text-[32px] lg:text-[36px] text-center ${
           lang == "fa" || lang == "ar"
             ? "yekan-black main-section-title-rtl"
-            : "biotif-bold main-section-title-ltr"
+            : "tasaorbiter-bold main-section-title-ltr"
         }`}
       >
         {children}
       </div>
       <div
         className={`gradient-text-overlay md:text-[32px] lg:text-[36px] text-center ${
-          lang == "fa" || lang == "ar" ? "yekan-black" : "biotif-bold"
+          lang == "fa" || lang == "ar" ? "yekan-black" : "tasaorbiter-bold"
         } ${
           active && lang == "en"
             ? "gradient-text-overlay-ltr main-section-title-ltr"
@@ -61,7 +61,7 @@ const MainSectionDescription = ({
       } md:text-[21.5px] lg:text-[22px] xl:text-[22.5px] select-none leading-[32px] sm:leading-[36px] md:leading-[38px] lg:leading-[40px] xl:leading-[42px] ${
         lang == "fa" || lang == "ar"
           ? "yekan-regular main-section-description-rtl"
-          : "biotif-regular main-section-description-ltr"
+          : "tasaorbiter-regular main-section-description-ltr"
       }`}
     >
       {children}

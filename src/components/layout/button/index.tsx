@@ -15,7 +15,7 @@ export const SeasonButton = ({ dark, lang }: SeasonButtonType) => {
         className={`${dark ? "text-primary-dark" : "text-primary"} ${
           lang == "ar" || lang == "fa"
             ? "yekan-regular main-section-description-rtl"
-            : "biotif-regular pb-[6px] main-section-description-ltr"
+            : "tasaorbiter-regular main-section-description-ltr"
         } md:text-[20px]`}
       >
         {lang == "ar"

@@ -34,7 +34,7 @@ const Header = () => {
           className={`max-w-[1280px] w-full md:m-auto md:px-[48px] lg:px-[64px]`}
         >
           {/* <div
-            className={`glow-bofrder duration-500 delay-700 ease-out h-full`}
+            className={`glow-border duration-500 delay-700 ease-out h-full`}
           ></div> */}
           <section className={`w-full h-full md:px-[16px] flex items-center`}>
             <section className="w-full">

@@ -6,6 +6,8 @@ import DirectionHandler from "./direction";
 import Loading from "./loading";
 import MainNavBar from "./navbar";
 import { useLoadingStore } from "@/store";
+import MouseMove from "./mouse";
+import ContextMenu from "./menu";
 
 let rafId: number;
 function startLenis(lenis: Lenis) {
@@ -76,6 +78,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <ContextMenu />
+      <MouseMove />
       <Loading />
       <DirectionHandler />
       <MainNavBar />

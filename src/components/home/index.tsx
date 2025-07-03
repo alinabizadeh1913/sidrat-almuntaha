@@ -27,23 +27,23 @@ const HomeComponents = () => {
   const EternalFallContainerRef = useRef<HTMLDivElement>(null);
   const EndlessSerenityContainerRef = useRef<HTMLDivElement>(null);
 
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  // const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
-  useEffect(() => {
-    const checkDarkMode = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setIsDarkMode(!isDark);
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(() => {
-      checkDarkMode();
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, []);
+  // useEffect(() => {
+  //   const checkDarkMode = () => {
+  //     const isDark = document.documentElement.classList.contains("dark");
+  //     setIsDarkMode(!isDark);
+  //   };
+  //   checkDarkMode();
+  //   const observer = new MutationObserver(() => {
+  //     checkDarkMode();
+  //   });
+  //   observer.observe(document.documentElement, {
+  //     attributes: true,
+  //     attributeFilter: ["class"],
+  //   });
+  //   return () => observer.disconnect();
+  // }, []);
 
   return (
     <>
@@ -84,7 +84,7 @@ const HomeComponents = () => {
 
       <div className="noise bg-[#ffffff] dark:bg-[#0c0c0c]" />
 
-      <Grid dark={isDarkMode} />
+      {/* <Grid dark={isDarkMode} /> */}
     </>
   );
 };
