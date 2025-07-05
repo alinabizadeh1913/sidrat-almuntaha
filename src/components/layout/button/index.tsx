@@ -14,9 +14,9 @@ export const SeasonButton = ({ dark, lang }: SeasonButtonType) => {
       <Typography
         className={`${dark ? "text-primary-dark" : "text-primary"} ${
           lang == "ar" || lang == "fa"
-            ? "yekan-regular main-section-description-rtl"
-            : "tasaorbiter-regular main-section-description-ltr"
-        } md:text-[20px]`}
+            ? "yekan-regular main-section-description-rtl md:text-[19px]"
+            : "tasaorbiter-regular main-section-description-ltr md:text-[20px]"
+        }`}
       >
         {lang == "ar"
           ? "خطوة نحو الحقيقة"

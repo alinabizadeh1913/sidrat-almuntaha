@@ -1,6 +1,5 @@
 "use client";
 
-import Typography from "@/components/layout/typography";
 import { Globe } from "../../../../../../public/svg";
 import { MainText } from "@/components/layout/text";
 import { useEffect, useRef, useState } from "react";
@@ -55,7 +54,7 @@ const ChangeLanguage = () => {
             isLanguageOpen
               ? "translate-y-0 visible opacity-100"
               : "translate-y-[20px] invisible opacity-0"
-          } absolute top-[155%] md:top-[130%] left-0 right-0 w-[89px] md:w-full border-primary rounded-[10px] pt-[6px] pb-2 flex flex-col gap-y-[6px] bg-[#f6f6f6] dark:bg-[#151515] duration-300`}
+          } absolute top-[155%] md:top-[130%] left-0 right-0 w-[89px] md:w-full border-primary rounded-[10px] py-2 flex flex-col gap-y-[6px] bg-[#f6f6f6] dark:bg-[#151515] duration-300`}
         >
           <div
             className="en-language cursor-pointer"

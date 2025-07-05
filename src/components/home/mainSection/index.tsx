@@ -58,10 +58,10 @@ const MainSectionDescription = ({
     <Typography
       className={`${
         dark ? "text-secondary-dark" : "text-secondary"
-      } md:text-[21.5px] lg:text-[22px] xl:text-[22.5px] select-none leading-[32px] sm:leading-[36px] md:leading-[38px] lg:leading-[40px] xl:leading-[42px] ${
+      } select-none ${
         lang == "fa" || lang == "ar"
-          ? "yekan-regular main-section-description-rtl"
-          : "tasaorbiter-regular main-section-description-ltr"
+          ? "yekan-regular main-section-description-rtl md:text-[20px] lg:text-[20.5px] xl:text-[21px] leading-[30px] sm:leading-[34px] md:leading-[36px] lg:leading-[38px] xl:leading-[40px]"
+          : "tasaorbiter-regular main-section-description-ltr md:text-[21.5px] lg:text-[22px] xl:text-[22.5px] leading-[32px] sm:leading-[36px] md:leading-[38px] lg:leading-[40px] xl:leading-[42px]"
       }`}
     >
       {children}

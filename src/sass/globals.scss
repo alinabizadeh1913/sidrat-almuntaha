@@ -218,10 +218,12 @@ $border-secondary-dark: #181512;
 }
 @font-face {
   font-family: "en-tasaorbiter-regular";
-  src: url("/fonts/en/TasaorbiterRegular/TasaorbiterRegular.woff2") format("woff2"),
+  src: url("/fonts/en/TasaorbiterRegular/TasaorbiterRegular.woff2")
+      format("woff2"),
     url("/fonts/en/BiotifRegular/TasaorbiterRegular.woff") format("woff"),
     url("/fonts/en/BiotifRegular/TasaorbiterRegular.ttf") format("truetype"),
-    url("/fonts/en/BiotifRegular/TasaorbiterRegular.eot") format("embedded-opentype"),
+    url("/fonts/en/BiotifRegular/TasaorbiterRegular.eot")
+      format("embedded-opentype"),
     url("/fonts/en/BiotifRegular/TasaorbiterRegular.otf") format("opentype");
 }
 
@@ -911,4 +913,70 @@ body {
 // Loading
 #loading {
   transition: opacity 0.35s 0.65s ease, visibility 0.35s 0.65s ease;
+}
+
+#cursor-lines {
+  .cursor-lines-inner {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover {
+    .cursor-lines-inner {
+      opacity: 1;
+      visibility: visible;
+      transition: 0.2313s ease;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 4px;
+    height: 100%;
+  }
+}
+
+#theme-wrapper {
+  .theme-inner {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover {
+    .theme-inner {
+      opacity: 1;
+      visibility: visible;
+      transition: 0.2313s ease;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 4px;
+    height: 100%;
+  }
+}
+
+#language-wrapper {
+  .language-inner {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover {
+    .language-inner {
+      opacity: 1;
+      visibility: visible;
+      transition: 0.2313s ease;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 4px;
+    height: 100%;
+  }
 }

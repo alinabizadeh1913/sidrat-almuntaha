@@ -1,9 +1,11 @@
 "use client";
 
+import { useContextMenuStore } from "@/store";
 import { useEffect, useRef } from "react";
 
 const MouseMove = () => {
   const mouseRef = useRef<HTMLDivElement | null>(null);
+  const { isContextMenuShow } = useContextMenuStore();
 
   useEffect(() => {
     let animationFrameId: number;
@@ -31,7 +33,9 @@ const MouseMove = () => {
   return (
     <div
       ref={mouseRef}
-      className="fixed w-0 h-0 top-0 left-0 z-[20] pointer-events-none transition-none"
+      className={`fixed w-0 h-0 top-0 left-0 z-[20] pointer-events-none transition-none ${
+        isContextMenuShow ? "hidden md:block" : "hidden"
+      }`}
     >
       <svg className="absolute top-[-100vh] left-1/2 w-screen h-[200vh] text-[rgba(24,21,18,0.8)] dark:text-[rgba(255,255,255,0.6)]">
         <line

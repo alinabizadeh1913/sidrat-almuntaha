@@ -2,20 +2,19 @@
 
 import { usePathname } from "next/navigation";
 import Section from "../section";
-import Typography from "../typography";
+import HomeNavbar from "@/components/home/header/navbar";
+import { useState } from "react";
 
 const MainNavBar = () => {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   return (
     <>
       {pathname !== "/" && (
         <Section>
-          <Typography className="text-white">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum
-            cumque id totam? Laudantium, soluta reiciendis. Libero totam
-            tempore, temporibus voluptatem nobis non animi possimus. Asperiores
-            repellat dolore quos eos dolorum.
-          </Typography>
+          <section className="md:pb-0 px-[32px] md:px-[48px] lg:px-[56px]">
+            <HomeNavbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          </section>
         </Section>
       )}
     </>

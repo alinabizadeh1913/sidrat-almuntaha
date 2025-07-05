@@ -723,3 +723,57 @@ body {
 #loading {
   transition: opacity 0.35s 0.65s ease, visibility 0.35s 0.65s ease;
 }
+
+#cursor-lines .cursor-lines-inner {
+  opacity: 0;
+  visibility: hidden;
+}
+#cursor-lines:hover .cursor-lines-inner {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.2313s ease;
+}
+#cursor-lines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 4px;
+  height: 100%;
+}
+
+#theme-wrapper .theme-inner {
+  opacity: 0;
+  visibility: hidden;
+}
+#theme-wrapper:hover .theme-inner {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.2313s ease;
+}
+#theme-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 4px;
+  height: 100%;
+}
+
+#language-wrapper .language-inner {
+  opacity: 0;
+  visibility: hidden;
+}
+#language-wrapper:hover .language-inner {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.2313s ease;
+}
+#language-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 4px;
+  height: 100%;
+}

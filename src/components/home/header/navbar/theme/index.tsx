@@ -1,22 +1,22 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { Moon, Sun } from "../../../../../../public/svg";
+import { useThemeStore } from "@/store";
 
 const ChangeTheme = () => {
-  const [status, setStatus] = useState<"light" | "dark">("dark");
-  const [isThemeOpen, setIsThemeOpen] = useState(false);
+  const { theme, setTheme } = useThemeStore();
 
   const changeTheme = () => {
-    if (status === "light") {
+    if (theme === "light") {
       setTimeout(() => {
-        setStatus("dark");
+        setTheme("dark");
         localStorage.setItem("theme", "dark");
         document.documentElement.classList.add("dark");
       }, 700);
     } else {
       setTimeout(() => {
-        setStatus("light");
+        setTheme("light");
         localStorage.setItem("theme", "light");
         document.documentElement.classList.remove("dark");
       }, 700);
@@ -28,10 +28,10 @@ const ChangeTheme = () => {
 
     if (theme) {
       if (theme === "dark") {
-        setStatus("dark");
+        setTheme("dark");
         document.documentElement.classList.add("dark");
       } else {
-        setStatus("light");
+        setTheme("light");
         document.documentElement.classList.add("light");
       }
     }
@@ -43,7 +43,7 @@ const ChangeTheme = () => {
         className={`change-theme text-[14px] text-tertiary md:h-[38px] rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] md:px-[10px] relative z-[30] flex justify-center items-center cursor-pointer md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818]`}
         onClick={changeTheme}
       >
-        {status === "dark" ? <Sun /> : <Moon />}
+        {theme === "dark" ? <Sun /> : <Moon />}
       </div>
     </>
   );

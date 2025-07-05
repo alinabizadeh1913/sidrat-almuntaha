@@ -20,6 +20,16 @@ interface HeaderStore {
   setIsHeaderShow: (show: boolean) => void;
 }
 
+interface ContextMenuStore {
+  isContextMenuShow: boolean;
+  setIsContextMenuShow: (show: boolean) => void;
+}
+
+interface ThemeStore {
+  theme: "light" | "dark";
+  setTheme: (theme: ThemeStore["theme"]) => void;
+}
+
 const useStore = create<LanguageStore>((set) => ({
   language: "en",
   direction: "ltr",
@@ -48,4 +58,20 @@ const useHeaderStore = create<HeaderStore>((set) => ({
   setIsHeaderShow: (show) => set({ isHeaderShow: show }),
 }));
 
-export { useStore, useLoadingStore, useHeaderStore };
+const useContextMenuStore = create<ContextMenuStore>((set) => ({
+  isContextMenuShow: true,
+  setIsContextMenuShow: (show) => set({ isContextMenuShow: show }),
+}));
+
+const useThemeStore = create<ThemeStore>((set) => ({
+  theme: "dark",
+  setTheme: (theme) => set({ theme }),
+}));
+
+export {
+  useStore,
+  useLoadingStore,
+  useHeaderStore,
+  useContextMenuStore,
+  useThemeStore,
+};

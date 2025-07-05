@@ -75,65 +75,133 @@ export const BarIcon = () => {
   );
 };
 
-export const Globe = () => {
+export const Globe = ({ size }: { size?: "small" | "medium" }) => {
   return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-[26px] h-[26px] md:w-[20px] md:h-[20px]"
-    >
-      <path
-        d="M10.0001 18.3333C14.6025 18.3333 18.3334 14.6024 18.3334 10C18.3334 5.39763 14.6025 1.66667 10.0001 1.66667C5.39771 1.66667 1.66675 5.39763 1.66675 10C1.66675 14.6024 5.39771 18.3333 10.0001 18.3333Z"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M1.66675 10H18.3334"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10.0001 1.66667C12.0845 3.94863 13.269 6.91003 13.3334 10C13.269 13.09 12.0845 16.0514 10.0001 18.3333C7.91568 16.0514 6.73112 13.09 6.66675 10C6.73112 6.91003 7.91568 3.94863 10.0001 1.66667Z"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <>
+      {size == "small" ? (
+        <svg
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-[19px] h-[19px]"
+        >
+          <path
+            d="M10.0001 18.3333C14.6025 18.3333 18.3334 14.6024 18.3334 10C18.3334 5.39763 14.6025 1.66667 10.0001 1.66667C5.39771 1.66667 1.66675 5.39763 1.66675 10C1.66675 14.6024 5.39771 18.3333 10.0001 18.3333Z"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M1.66675 10H18.3334"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M10.0001 1.66667C12.0845 3.94863 13.269 6.91003 13.3334 10C13.269 13.09 12.0845 16.0514 10.0001 18.3333C7.91568 16.0514 6.73112 13.09 6.66675 10C6.73112 6.91003 7.91568 3.94863 10.0001 1.66667Z"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : (
+        <svg
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-[26px] h-[26px] md:w-[20px] md:h-[20px]"
+        >
+          <path
+            d="M10.0001 18.3333C14.6025 18.3333 18.3334 14.6024 18.3334 10C18.3334 5.39763 14.6025 1.66667 10.0001 1.66667C5.39771 1.66667 1.66675 5.39763 1.66675 10C1.66675 14.6024 5.39771 18.3333 10.0001 18.3333Z"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M1.66675 10H18.3334"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M10.0001 1.66667C12.0845 3.94863 13.269 6.91003 13.3334 10C13.269 13.09 12.0845 16.0514 10.0001 18.3333C7.91568 16.0514 6.73112 13.09 6.66675 10C6.73112 6.91003 7.91568 3.94863 10.0001 1.66667Z"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
+    </>
   );
 };
 
-export const Search = ({ direction }: { direction?: "ltr" | "rtl" }) => {
+export const Search = ({
+  direction,
+  size,
+}: {
+  direction?: "ltr" | "rtl";
+  size?: "small" | "medium";
+}) => {
   return (
-    <svg
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-[23px] h-[23px] md:w-[18px] md:h-[18px]"
-      style={{
-        transform: direction == "ltr" ? "scaleX(1)" : "scaleX(-1)",
-      }}
-    >
-      <path
-        d="M8.77783 13.4443C5.34142 13.4443 2.55566 10.6586 2.55566 7.22217C2.55566 3.78576 5.34142 1 8.77783 1C12.2142 1 15 3.78576 15 7.22217C15 10.6586 12.2142 13.4443 8.77783 13.4443Z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M0.999995 15L4.3833 11.6167"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <>
+      {size == "small" ? (
+        <svg
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-[17px] h-[17px]"
+          style={{
+            transform: direction == "ltr" ? "scaleX(1)" : "scaleX(-1)",
+          }}
+        >
+          <path
+            d="M8.77783 13.4443C5.34142 13.4443 2.55566 10.6586 2.55566 7.22217C2.55566 3.78576 5.34142 1 8.77783 1C12.2142 1 15 3.78576 15 7.22217C15 10.6586 12.2142 13.4443 8.77783 13.4443Z"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M0.999995 15L4.3833 11.6167"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : (
+        <svg
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-[23px] h-[23px] md:w-[18px] md:h-[18px]"
+          style={{
+            transform: direction == "ltr" ? "scaleX(1)" : "scaleX(-1)",
+          }}
+        >
+          <path
+            d="M8.77783 13.4443C5.34142 13.4443 2.55566 10.6586 2.55566 7.22217C2.55566 3.78576 5.34142 1 8.77783 1C12.2142 1 15 3.78576 15 7.22217C15 10.6586 12.2142 13.4443 8.77783 13.4443Z"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M0.999995 15L4.3833 11.6167"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
+    </>
   );
 };
 
@@ -182,106 +250,211 @@ export const Arrow = ({ direction }: { direction: "ltr" | "rtl" }) => {
   );
 };
 
-export const Sun = () => {
+export const Sun = ({ size }: { size?: "small" | "medium" }) => {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g clipPath="url(#clip0_1896_308)">
-        <path
-          d="M10 14.1667C12.3012 14.1667 14.1667 12.3012 14.1667 10C14.1667 7.69881 12.3012 5.83333 10 5.83333C7.69885 5.83333 5.83337 7.69881 5.83337 10C5.83337 12.3012 7.69885 14.1667 10 14.1667Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M10 0.833332V2.5"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M10 17.5V19.1667"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3.51672 3.51667L4.70006 4.7"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M15.3 15.3L16.4834 16.4833"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M0.833374 10H2.50004"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17.5 10H19.1667"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3.51672 16.4833L4.70006 15.3"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M15.3 4.7L16.4834 3.51667"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_1896_308">
-          <rect width="20" height="20" fill="white" />
-        </clipPath>
-      </defs>
-    </svg>
+    <>
+      {size == "small" ? (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-[18.5px] h-[18.5px]"
+        >
+          <g clipPath="url(#clip0_1896_308)">
+            <path
+              d="M10 14.1667C12.3012 14.1667 14.1667 12.3012 14.1667 10C14.1667 7.69881 12.3012 5.83333 10 5.83333C7.69885 5.83333 5.83337 7.69881 5.83337 10C5.83337 12.3012 7.69885 14.1667 10 14.1667Z"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10 0.833332V2.5"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10 17.5V19.1667"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M3.51672 3.51667L4.70006 4.7"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15.3 15.3L16.4834 16.4833"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M0.833374 10H2.50004"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M17.5 10H19.1667"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M3.51672 16.4833L4.70006 15.3"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15.3 4.7L16.4834 3.51667"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_1896_308">
+              <rect width="20" height="20" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      ) : (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_1896_308)">
+            <path
+              d="M10 14.1667C12.3012 14.1667 14.1667 12.3012 14.1667 10C14.1667 7.69881 12.3012 5.83333 10 5.83333C7.69885 5.83333 5.83337 7.69881 5.83337 10C5.83337 12.3012 7.69885 14.1667 10 14.1667Z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10 0.833332V2.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10 17.5V19.1667"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M3.51672 3.51667L4.70006 4.7"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15.3 15.3L16.4834 16.4833"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M0.833374 10H2.50004"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M17.5 10H19.1667"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M3.51672 16.4833L4.70006 15.3"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15.3 4.7L16.4834 3.51667"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_1896_308">
+              <rect width="20" height="20" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      )}
+    </>
   );
 };
 
-export const Moon = () => {
+export const Moon = ({ size }: { size?: "small" | "medium" }) => {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M17.5 10.6583C17.369 12.0768 16.8366 13.4287 15.9652 14.5557C15.0939 15.6826 13.9196 16.5382 12.5798 17.0221C11.24 17.5061 9.79003 17.5984 8.39962 17.2884C7.00922 16.9784 5.73587 16.2788 4.72856 15.2715C3.72125 14.2642 3.02166 12.9908 2.71163 11.6004C2.4016 10.21 2.49397 8.76007 2.97792 7.42025C3.46188 6.08042 4.3174 4.90614 5.44438 4.03479C6.57137 3.16345 7.9232 2.63109 9.34171 2.5C8.51122 3.62356 8.11158 5.00787 8.21548 6.40118C8.31939 7.79448 8.91992 9.10422 9.90787 10.0922C10.8958 11.0801 12.2056 11.6807 13.5989 11.7846C14.9922 11.8885 16.3765 11.4888 17.5 10.6583Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <>
+      {size == "small" ? (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-[20px] h-[20px]"
+        >
+          <path
+            d="M17.5 10.6583C17.369 12.0768 16.8366 13.4287 15.9652 14.5557C15.0939 15.6826 13.9196 16.5382 12.5798 17.0221C11.24 17.5061 9.79003 17.5984 8.39962 17.2884C7.00922 16.9784 5.73587 16.2788 4.72856 15.2715C3.72125 14.2642 3.02166 12.9908 2.71163 11.6004C2.4016 10.21 2.49397 8.76007 2.97792 7.42025C3.46188 6.08042 4.3174 4.90614 5.44438 4.03479C6.57137 3.16345 7.9232 2.63109 9.34171 2.5C8.51122 3.62356 8.11158 5.00787 8.21548 6.40118C8.31939 7.79448 8.91992 9.10422 9.90787 10.0922C10.8958 11.0801 12.2056 11.6807 13.5989 11.7846C14.9922 11.8885 16.3765 11.4888 17.5 10.6583Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.5 10.6583C17.369 12.0768 16.8366 13.4287 15.9652 14.5557C15.0939 15.6826 13.9196 16.5382 12.5798 17.0221C11.24 17.5061 9.79003 17.5984 8.39962 17.2884C7.00922 16.9784 5.73587 16.2788 4.72856 15.2715C3.72125 14.2642 3.02166 12.9908 2.71163 11.6004C2.4016 10.21 2.49397 8.76007 2.97792 7.42025C3.46188 6.08042 4.3174 4.90614 5.44438 4.03479C6.57137 3.16345 7.9232 2.63109 9.34171 2.5C8.51122 3.62356 8.11158 5.00787 8.21548 6.40118C8.31939 7.79448 8.91992 9.10422 9.90787 10.0922C10.8958 11.0801 12.2056 11.6807 13.5989 11.7846C14.9922 11.8885 16.3765 11.4888 17.5 10.6583Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
+    </>
   );
 };
 
@@ -392,5 +565,106 @@ export const Leaf = () => {
         strokeLinejoin="round"
       />
     </svg>
+  );
+};
+
+export const Plus = () => {
+  return (
+    <>
+      <svg
+        width="17"
+        height="17"
+        viewBox="0 0 17 17"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.5 1V16"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M1 8.5H16"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </>
+  );
+};
+
+export const LinkIcon = () => {
+  return (
+    <>
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g clipPath="url(#clip0_2444_20)">
+          <path
+            d="M7.50003 9.75095C7.82212 10.1815 8.23305 10.5378 8.70494 10.7957C9.17683 11.0535 9.69866 11.2068 10.235 11.2452C10.7714 11.2836 11.3097 11.2062 11.8135 11.0183C12.3174 10.8303 12.7749 10.5363 13.155 10.156L15.405 7.90595C16.0881 7.19869 16.4661 6.25143 16.4576 5.2682C16.449 4.28496 16.0546 3.34441 15.3593 2.64913C14.6641 1.95385 13.7235 1.55947 12.7403 1.55092C11.757 1.54238 10.8098 1.92036 10.1025 2.60345L8.81253 3.88595M10.5 8.25095C10.1779 7.82036 9.76701 7.46406 9.29511 7.20625C8.82322 6.94843 8.3014 6.79511 7.76504 6.7567C7.22868 6.71829 6.69034 6.79568 6.18652 6.98362C5.6827 7.17155 5.22519 7.46565 4.84503 7.84595L2.59503 10.096C1.91194 10.8032 1.53396 11.7505 1.5425 12.7337C1.55104 13.7169 1.94543 14.6575 2.64071 15.3528C3.33599 16.0481 4.27654 16.4424 5.25977 16.451C6.24301 16.4595 7.19027 16.0815 7.89753 15.3985L9.18003 14.116"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_2444_20">
+            <rect width="18" height="18" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    </>
+  );
+};
+
+export const RightIcon = () => {
+  return (
+    <>
+      <svg
+        width="6"
+        height="10"
+        viewBox="0 0 6 10"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 9L5 5L1 1"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </>
+  );
+};
+
+export const CheckMark = () => {
+  return (
+    <>
+      <svg
+        width="14"
+        height="10"
+        viewBox="0 0 14 10"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.3334 1L5.00002 8.33333L1.66669 5"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </>
   );
 };
