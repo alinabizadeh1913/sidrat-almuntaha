@@ -52,13 +52,18 @@ const HomeNavbar = ({
     >
       <Section special>
         <div className="w-full flex items-center justify-between pt-7 md:pt-6 lg:pt-7 relative">
-          <div className="w-5/12 flex items-center gap-x-[16px]">
-            <ChangeLanguage />
-            <ChangeTheme />
-            <SearchBox />
+          <div className="w-5/12 flex items-center">
+            <div className="w-fit flex items-center gap-x-[16px]" data-cursor="action">
+              <ChangeLanguage />
+              <ChangeTheme />
+              <SearchBox />
+            </div>
           </div>
           <div className="w-2/12 flex justify-center">
-            <div className="w-[48px] h-[56px] relative z-[30] select-none">
+            <div
+              data-cursor="action"
+              className="w-[48px] h-[56px] relative z-[30] select-none"
+            >
               <Image
                 src={`${
                   isDarkMode
@@ -75,6 +80,7 @@ const HomeNavbar = ({
           </div>
           <div className="w-5/12 flex justify-end">
             <div
+              data-cursor="action"
               className="cursor-pointer text-tertiary relative z-[30]"
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);

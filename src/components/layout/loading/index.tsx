@@ -78,7 +78,7 @@ const Loading = () => {
   return (
     <>
       <Section
-        className={`fixed top-0 left-0 w-full h-full z-[1010] pt-9 pointer-events-none ${
+        className={`fixed top-0 left-0 w-full h-full z-[10001] pt-7 md:pt-6 lg:pt-7 pointer-events-none ${
           isLoadingShow
             ? "visible opacity-100"
             : "invisible opacity-0 delay-[1700ms]"
@@ -123,7 +123,7 @@ const Loading = () => {
         identifier="loading"
         className={`${
           isLoadingShow ? "visible opacity-100" : "invisible opacity-0"
-        } w-full h-screen fixed z-[1000] top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-[#dbdbdb] dark:bg-[#151515]`}
+        } w-full h-screen fixed z-[10000] top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-[#dbdbdb] dark:bg-[#151515]`}
       >
         <div
           className="absolute top-0 left-0 h-full bg-[#ffffff] dark:bg-[#11110f]"

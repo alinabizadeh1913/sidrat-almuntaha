@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
   CheckMark,
+  CursorEffectsIcon,
   Globe,
   LinkIcon,
   Moon,
@@ -10,13 +11,29 @@ import {
   RightIcon,
   Search,
   Sun,
+  ThemeIcon,
 } from "../../../../public/svg";
 import { MainText } from "../text";
-import { useContextMenuStore, useStore, useThemeStore } from "@/store";
+import { useCursorLinesStore, useStore, useThemeStore } from "@/store";
 
 const ContextMenu = () => {
-  const { theme, setTheme } = useThemeStore();
   const { language, setLanguage } = useStore();
+  const { theme, setTheme } = useThemeStore();
+  const { isCursorEffectsShow, setIsCursorEffectsShow } = useCursorLinesStore();
+
+  useEffect(() => {
+    const language = localStorage.getItem("language");
+
+    if (language) {
+      if (language === "en") {
+        setLanguage("en");
+      } else if (language === "ar") {
+        setLanguage("ar");
+      } else {
+        setLanguage("fa");
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -32,7 +49,18 @@ const ContextMenu = () => {
     }
   }, []);
 
-  const { isContextMenuShow, setIsContextMenuShow } = useContextMenuStore();
+  useEffect(() => {
+    const cursorLines = localStorage.getItem("cursorLines");
+
+    if (cursorLines) {
+      if (cursorLines === "show") {
+        setIsCursorEffectsShow(true);
+      } else {
+        setIsCursorEffectsShow(false);
+      }
+    }
+  }, []);
+
   const [menuPosition, setMenuPosition] = useState<{ x: number; y: number }>({
     x: 0,
     y: 0,
@@ -101,9 +129,10 @@ const ContextMenu = () => {
     <>
       {isMenuOpen && (
         <div
+          data-cursor="action"
           dir="ltr"
           ref={menuRef}
-          className="fixed z-[9999]"
+          className="fixed z-[10000]"
           style={{
             top: `${menuPosition.y}px`,
             left: `${menuPosition.x}px`,
@@ -157,6 +186,7 @@ const ContextMenu = () => {
                     className="p-3 hover:bg-[#3a3a3a] flex items-center justify-between"
                     onClick={() => {
                       setLanguage("en");
+                      localStorage.setItem("language", "en");
                     }}
                   >
                     <MainText
@@ -164,7 +194,7 @@ const ContextMenu = () => {
                       weight="regular"
                       className="text-[#fff] ms-2"
                     >
-                      En
+                      English
                     </MainText>
                     <div className="flex items-center text-[#fff]">
                       {language == "en" && <CheckMark />}
@@ -174,6 +204,7 @@ const ContextMenu = () => {
                     className="p-3 hover:bg-[#3a3a3a] flex items-center justify-between"
                     onClick={() => {
                       setLanguage("ar");
+                      localStorage.setItem("language", "ar");
                     }}
                   >
                     <MainText
@@ -181,7 +212,7 @@ const ContextMenu = () => {
                       weight="regular"
                       className="text-[#fff] ms-2"
                     >
-                      Ar
+                      Arabic
                     </MainText>
                     <div className="flex items-center text-[#fff]">
                       {language == "ar" && <CheckMark />}
@@ -191,6 +222,7 @@ const ContextMenu = () => {
                     className="p-3 hover:bg-[#3a3a3a] flex items-center justify-between"
                     onClick={() => {
                       setLanguage("fa");
+                      localStorage.setItem("language", "fa");
                     }}
                   >
                     <MainText
@@ -198,7 +230,7 @@ const ContextMenu = () => {
                       weight="regular"
                       className="text-[#fff] ms-2"
                     >
-                      Fa
+                      Persion
                     </MainText>
                     <div className="flex items-center text-[#fff]">
                       {language == "fa" && <CheckMark />}
@@ -214,11 +246,7 @@ const ContextMenu = () => {
               >
                 <div className="flex items-center">
                   <div className="text-[#fff] w-[30px] flex justify-center items-center">
-                    {theme == "dark" ? (
-                      <Moon size="small" />
-                    ) : (
-                      <Sun size="small" />
-                    )}
+                    <ThemeIcon />
                   </div>
                   <MainText
                     lang="en"
@@ -295,14 +323,14 @@ const ContextMenu = () => {
               >
                 <div className="flex items-center">
                   <div className="text-[#fff] w-[30px] flex justify-center items-center">
-                    <Plus />
+                    <CursorEffectsIcon />
                   </div>
                   <MainText
                     lang="en"
                     weight="regular"
                     className="text-[#fff] ms-2"
                   >
-                    Cursor Lines
+                    Cursor Effects
                   </MainText>
                 </div>
                 <div className="flex items-center text-[#fff]">
@@ -311,7 +339,10 @@ const ContextMenu = () => {
                 <div className="cursor-lines-inner absolute top-0 left-[calc(100%+4px)] bg-[#1f1f1f] w-[125px] rounded-xl flex flex-col overflow-hidden">
                   <div
                     className="p-3 hover:bg-[#3a3a3a] flex items-center justify-between"
-                    onClick={() => setIsContextMenuShow(true)}
+                    onClick={() => {
+                      setIsCursorEffectsShow(true);
+                      localStorage.setItem("cursorLines", "show");
+                    }}
                   >
                     <MainText
                       lang="en"
@@ -321,12 +352,15 @@ const ContextMenu = () => {
                       Show
                     </MainText>
                     <div className="flex items-center text-[#fff]">
-                      {isContextMenuShow && <CheckMark />}
+                      {isCursorEffectsShow && <CheckMark />}
                     </div>
                   </div>
                   <div
                     className="p-3 hover:bg-[#3a3a3a] flex items-center justify-between"
-                    onClick={() => setIsContextMenuShow(false)}
+                    onClick={() => {
+                      setIsCursorEffectsShow(false);
+                      localStorage.setItem("cursorLines", "hide");
+                    }}
                   >
                     <MainText
                       lang="en"
@@ -336,7 +370,7 @@ const ContextMenu = () => {
                       Hide
                     </MainText>
                     <div className="flex items-center text-[#fff]">
-                      {!isContextMenuShow && <CheckMark />}
+                      {!isCursorEffectsShow && <CheckMark />}
                     </div>
                   </div>
                 </div>

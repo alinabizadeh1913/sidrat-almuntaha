@@ -134,7 +134,7 @@ const SuspendedHouse = ({
                   </MainSectionTitle>
                 </motion.div>
                 <motion.div
-                  className={`description mt-2 md:w-full md:pe-[60px] lg:pe-[80px] xl:pe-[100px] 2xl:pe-[120px]`}
+                  className={`description mt-2 md:w-full md:pe-[80px] lg:pe-[80px] xl:pe-[100px] 2xl:pe-[120px]`}
                   style={{
                     y: descriptionY,
                     opacity: descriptionOpacity,
@@ -162,7 +162,7 @@ const SuspendedHouse = ({
                 </div>
               </div>
             </div>
-            <div>
+            <div data-cursor="action">
               <Link href={seasons[3].href}>
                 <motion.figure
                   className={`images relative overflow-hidden md:w-[380px] md:h-[480px] lg:w-[400px] lg:h-[500px] xl:w-[420px] xl:h-[520px]`}

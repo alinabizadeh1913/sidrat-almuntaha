@@ -73,7 +73,7 @@ const Header = () => {
                     : header.text.translations.en}
                 </MainText>
               </div>
-              <div className="hidden md:block">
+              <div className="hidden md:block" data-cursor="text">
                 <Typewriter
                   isFinished={isFinished}
                   setIsFinished={setIsFinished}

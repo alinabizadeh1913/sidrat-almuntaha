@@ -23,8 +23,18 @@ const MainText = ({
     <Typography
       tagName={tagName}
       className={`${className} ${
-        lang == "ar" || lang == "fa" ? `yekan-${weight}` : `tasaorbiter-${weight}`
-      } ${quran ? "uthman" : ""} ${align == "center" ? "text-center" : align == "start" ? "text-start" : align == "end" ? "text-end" : ""} select-none`}
+        lang == "ar" || lang == "fa"
+          ? `yekan-${weight}`
+          : `tasaorbiter-${weight}`
+      } ${quran ? "uthman" : ""} ${
+        align == "center"
+          ? "text-center"
+          : align == "start"
+          ? "text-start"
+          : align == "end"
+          ? "text-end"
+          : ""
+      } select-none`}
     >
       {children}
     </Typography>
@@ -34,11 +44,11 @@ const MainText = ({
 const GradientText = ({ children, weight, className, lang }: TextProps) => {
   return (
     <>
-      <section className="gradient-text-wrapper select-none">
+      <section className="gradient-text-wrapper select-none" data-cursor="text">
         <div
           className={`${className} gradient-text text-center ${
             lang == "fa" || lang == "ar"
-              ? `yekan-${weight}`
+              ? `yekan-${weight} gradient-special`
               : `tasaorbiter-${weight}`
           }`}
         >
@@ -47,7 +57,7 @@ const GradientText = ({ children, weight, className, lang }: TextProps) => {
         <div
           className={`${className} gradient-text-overlay text-overlay text-center ${
             lang == "fa" || lang == "ar"
-              ? `yekan-${weight} gradient-text-overlay-rtl`
+              ? `yekan-${weight} gradient-text-overlay-rtl gradient-special`
               : `tasaorbiter-${weight} gradient-text-overlay-ltr`
           }`}
         >

@@ -8,19 +8,19 @@
 
 $body-background: #0c0c0c;
 
-$text-linear: linear-gradient(180deg, #fda52a, #fae3c3);
+$text-linear: linear-gradient(180deg, #ffaf47, #fcdfb8);
 $text-linear-dark: linear-gradient(180deg, #1a1714, #9b9b9b);
 
-$text-primary: #fdc882;
+$text-primary: #ffcf91;
 $text-secondary: #ead6b2;
-$text-tertiary: #ffe4bf;
+$text-tertiary: #f8e0bf;
 $text-quran: #fff;
 
 $text-primary-dark: #181512;
 $text-secondary-dark: #201c18;
 $text-tertiary-dark: #312e2a;
 
-$bg-primary: #fdc882;
+$bg-primary: #ffcf91;
 $bg-secondary: #ead6b2;
 $bg-tertiary: #ffe4bf;
 
@@ -35,7 +35,7 @@ $button-hover: rgba(240, 197, 139, 0.05);
 $button-hover-dark: rgba(29, 25, 19, 0.05);
 
 $border-primary: #fff3e240;
-$border-secondary: #fdc882;
+$border-secondary: #ffcf91;
 
 $border-primary-dark: #554e48;
 $border-secondary-dark: #181512;
@@ -235,9 +235,11 @@ $border-secondary-dark: #181512;
 }
 .yekan-bold {
   font-family: "fa-yekan-bakh-bold";
+  letter-spacing: -2.5px !important;
 }
 .yekan-regular {
   font-family: "fa-yekan-bakh-regular";
+  letter-spacing: -0.5px !important;
 }
 .tasaorbiter-bold {
   font-family: "en-tasaorbiter-bold";
@@ -479,6 +481,16 @@ body {
   position: relative;
   display: inline-block;
   user-select: none;
+  width: fit-content;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 10px;
+  }
   .gradient-text-overlay {
     position: absolute;
     top: 0;
@@ -509,6 +521,10 @@ body {
   background-clip: text;
 }
 
+.gradient-text.gradient-special {
+  letter-spacing: -2px !important;
+}
+
 .dark .gradient-text {
   color: transparent;
   background: $text-linear;
@@ -518,6 +534,9 @@ body {
 
 .gradient-text-overlay-rtl {
   animation: textOverlayRtl 3.5s linear infinite;
+}
+.gradient-text-overlay-rtl.gradient-special {
+  letter-spacing: -2px !important;
 }
 .gradient-text-overlay-ltr {
   animation: textOverlayLtr 5s linear infinite;

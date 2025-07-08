@@ -12,6 +12,20 @@ const ChangeLanguage = () => {
   const languageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const language = localStorage.getItem("language");
+
+    if (language) {
+      if (language === "en") {
+        setLanguage("en");
+      } else if (language === "ar") {
+        setLanguage("ar");
+      } else {
+        setLanguage("fa");
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     const handleOutSideClick = (e: MouseEvent) => {
       if (
         languageRef.current &&
@@ -31,6 +45,7 @@ const ChangeLanguage = () => {
   return (
     <>
       <div
+        data-cursor="action"
         className={`change-language md:w-[89px] md:h-[38px] rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] relative z-[30] md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818]`}
         ref={languageRef}
       >
@@ -61,6 +76,7 @@ const ChangeLanguage = () => {
             onClick={() => {
               setLanguage("en");
               setIsLanguageOpen(false);
+              localStorage.setItem("language", "en");
             }}
           >
             <MainText
@@ -76,6 +92,7 @@ const ChangeLanguage = () => {
             onClick={() => {
               setLanguage("ar");
               setIsLanguageOpen(false);
+              localStorage.setItem("language", "ar");
             }}
           >
             <MainText
@@ -91,6 +108,7 @@ const ChangeLanguage = () => {
             onClick={() => {
               setLanguage("fa");
               setIsLanguageOpen(false);
+              localStorage.setItem("language", "fa");
             }}
           >
             <MainText

@@ -20,9 +20,9 @@ interface HeaderStore {
   setIsHeaderShow: (show: boolean) => void;
 }
 
-interface ContextMenuStore {
-  isContextMenuShow: boolean;
-  setIsContextMenuShow: (show: boolean) => void;
+interface CursorEffectsStore {
+  isCursorEffectsShow: boolean;
+  setIsCursorEffectsShow: (show: boolean) => void;
 }
 
 interface ThemeStore {
@@ -58,9 +58,9 @@ const useHeaderStore = create<HeaderStore>((set) => ({
   setIsHeaderShow: (show) => set({ isHeaderShow: show }),
 }));
 
-const useContextMenuStore = create<ContextMenuStore>((set) => ({
-  isContextMenuShow: true,
-  setIsContextMenuShow: (show) => set({ isContextMenuShow: show }),
+const useCursorLinesStore = create<CursorEffectsStore>((set) => ({
+  isCursorEffectsShow: true,
+  setIsCursorEffectsShow: (show) => set({ isCursorEffectsShow: show }),
 }));
 
 const useThemeStore = create<ThemeStore>((set) => ({
@@ -72,6 +72,6 @@ export {
   useStore,
   useLoadingStore,
   useHeaderStore,
-  useContextMenuStore,
+  useCursorLinesStore,
   useThemeStore,
 };

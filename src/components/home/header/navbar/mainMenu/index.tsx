@@ -76,13 +76,14 @@ const MainMenu = ({
     <Section
       identifier="main-menu"
       className={`
-        fixed top-0 left-0 right-0 w-full h-full z-[2500]
+        fixed top-0 left-0 right-0 w-full h-full z-[1500]
         
         ${getTranslateClass()}
         
       `}
     >
       <div
+        data-cursor="text"
         className={`main-menu-inner w-full h-full flex items-center justify-center bg-[#ffffff] dark:bg-[#111111] ${getOpacityClass()}`}
       >
         <Link
