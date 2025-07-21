@@ -14,12 +14,12 @@ import {
   ThemeIcon,
 } from "../../../../public/svg";
 import { MainText } from "../text";
-import { useCursorLinesStore, useStore, useThemeStore } from "@/store";
+import { useCursorEffectsStore, useStore, useThemeStore } from "@/store";
 
 const ContextMenu = () => {
   const { language, setLanguage } = useStore();
   const { theme, setTheme } = useThemeStore();
-  const { isCursorEffectsShow, setIsCursorEffectsShow } = useCursorLinesStore();
+  const { isCursorEffectsShow, setIsCursorEffectsShow } = useCursorEffectsStore();
 
   useEffect(() => {
     const language = localStorage.getItem("language");
@@ -50,10 +50,10 @@ const ContextMenu = () => {
   }, []);
 
   useEffect(() => {
-    const cursorLines = localStorage.getItem("cursorLines");
+    const cursorEffects = localStorage.getItem("cursorEffects");
 
-    if (cursorLines) {
-      if (cursorLines === "show") {
+    if (cursorEffects) {
+      if (cursorEffects === "enable") {
         setIsCursorEffectsShow(true);
       } else {
         setIsCursorEffectsShow(false);
@@ -132,7 +132,7 @@ const ContextMenu = () => {
           data-cursor="action"
           dir="ltr"
           ref={menuRef}
-          className="fixed z-[10000]"
+          className="fixed z-[20000]"
           style={{
             top: `${menuPosition.y}px`,
             left: `${menuPosition.x}px`,
@@ -341,7 +341,7 @@ const ContextMenu = () => {
                     className="p-3 hover:bg-[#3a3a3a] flex items-center justify-between"
                     onClick={() => {
                       setIsCursorEffectsShow(true);
-                      localStorage.setItem("cursorLines", "show");
+                      localStorage.setItem("cursorEffects", "enable");
                     }}
                   >
                     <MainText
@@ -349,7 +349,7 @@ const ContextMenu = () => {
                       weight="regular"
                       className="text-[#fff] ms-2"
                     >
-                      Show
+                      Enable
                     </MainText>
                     <div className="flex items-center text-[#fff]">
                       {isCursorEffectsShow && <CheckMark />}
@@ -359,7 +359,7 @@ const ContextMenu = () => {
                     className="p-3 hover:bg-[#3a3a3a] flex items-center justify-between"
                     onClick={() => {
                       setIsCursorEffectsShow(false);
-                      localStorage.setItem("cursorLines", "hide");
+                      localStorage.setItem("cursorEffects", "disable");
                     }}
                   >
                     <MainText
@@ -367,7 +367,7 @@ const ContextMenu = () => {
                       weight="regular"
                       className="text-[#fff] ms-2"
                     >
-                      Hide
+                      Disable
                     </MainText>
                     <div className="flex items-center text-[#fff]">
                       {!isCursorEffectsShow && <CheckMark />}

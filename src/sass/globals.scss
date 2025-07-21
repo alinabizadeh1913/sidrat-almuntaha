@@ -9,7 +9,7 @@
 $body-background: #0c0c0c;
 
 $text-linear: linear-gradient(180deg, #ffaf47, #fcdfb8);
-$text-linear-dark: linear-gradient(180deg, #1a1714, #9b9b9b);
+$text-linear-dark: linear-gradient(180deg, #090909, #7e7e7e);
 
 $text-primary: #ffcf91;
 $text-secondary: #ead6b2;
@@ -28,7 +28,7 @@ $bg-primary-dark: #181512;
 $bg-secondary-dark: #201c18;
 $bg-tertiary-dark: #312e2a;
 
-$line-bg: linear-gradient(to bottom, #f8c279, #ac8654, #151616);
+$line-bg: linear-gradient(to bottom, #f8c279, #ac8654, #232014);
 $line-bg-dark: linear-gradient(to bottom, #181512, #585149, #f6f6f6);
 
 $button-hover: rgba(240, 197, 139, 0.05);
@@ -39,6 +39,16 @@ $border-secondary: #ffcf91;
 
 $border-primary-dark: #554e48;
 $border-secondary-dark: #181512;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-size: 0.85rem;
+  line-height: normal;
+  // letter-spacing: 0px;
+}
 
 // Utilities
 
@@ -235,11 +245,9 @@ $border-secondary-dark: #181512;
 }
 .yekan-bold {
   font-family: "fa-yekan-bakh-bold";
-  letter-spacing: -2.5px !important;
 }
 .yekan-regular {
   font-family: "fa-yekan-bakh-regular";
-  letter-spacing: -0.5px !important;
 }
 .tasaorbiter-bold {
   font-family: "en-tasaorbiter-bold";
@@ -250,15 +258,7 @@ $border-secondary-dark: #181512;
 
 // Font Size
 
-html {
-  scroll-behavior: smooth;
-}
 
-* {
-  font-size: 0.85rem;
-  line-height: normal;
-  letter-spacing: 0px !important;
-}
 p {
   font-size: 0.85rem;
 }
@@ -521,9 +521,9 @@ body {
   background-clip: text;
 }
 
-.gradient-text.gradient-special {
-  letter-spacing: -2px !important;
-}
+// .gradient-text.gradient-special {
+//   letter-spacing: -2.5px !important;
+// }
 
 .dark .gradient-text {
   color: transparent;
@@ -535,9 +535,9 @@ body {
 .gradient-text-overlay-rtl {
   animation: textOverlayRtl 3.5s linear infinite;
 }
-.gradient-text-overlay-rtl.gradient-special {
-  letter-spacing: -2px !important;
-}
+// .gradient-text-overlay-rtl.gradient-special {
+//   letter-spacing: -2.5px !important;
+// }
 .gradient-text-overlay-ltr {
   animation: textOverlayLtr 5s linear infinite;
 }

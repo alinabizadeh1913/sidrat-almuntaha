@@ -134,7 +134,7 @@ const FourteenInfallibles = ({
                   </MainSectionTitle>
                 </motion.div>
                 <motion.div
-                  className={`description mt-2 md:w-full md:pe-[80px] lg:pe-[80px] xl:pe-[100px] 2xl:pe-[120px]`}
+                  className={`description mt-2 md:w-full ${language == "en" ? "md:pe-[70px]" : "md:pe-[80px]"} lg:pe-[80px] xl:pe-[100px] 2xl:pe-[120px]`}
                   style={{
                     y: descriptionY,
                     opacity: descriptionOpacity,

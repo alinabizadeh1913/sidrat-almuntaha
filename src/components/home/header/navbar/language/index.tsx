@@ -46,7 +46,7 @@ const ChangeLanguage = () => {
     <>
       <div
         data-cursor="action"
-        className={`change-language md:w-[89px] md:h-[38px] rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] relative z-[30] md:bg-[#f6f6f6] md:dark:bg-[#151515] md:hover:bg-[#ececec] md:dark:hover:bg-[#181818]`}
+        className={`change-language md:w-[89px] md:h-[38px] rounded-[10px] md:border md:border-[#554E48] dark:md:border-[#fff3e240] relative z-[30] md:bg-transparent md:hover:bg-[#ecececc4] md:dark:bg-transparent md:dark:hover:bg-[#25210f9d] backdrop-blur-md`}
         ref={languageRef}
       >
         <div
@@ -69,7 +69,7 @@ const ChangeLanguage = () => {
             isLanguageOpen
               ? "translate-y-0 visible opacity-100"
               : "translate-y-[20px] invisible opacity-0"
-          } absolute top-[155%] md:top-[130%] left-0 right-0 w-[89px] md:w-full border-primary rounded-[10px] py-2 flex flex-col gap-y-[6px] bg-[#f6f6f6] dark:bg-[#151515] duration-300`}
+          } absolute top-[155%] md:top-[130%] left-0 right-0 w-[89px] md:w-full border-primary rounded-[10px] py-2 flex flex-col gap-y-[6px] backdrop-blur-md duration-300`}
         >
           <div
             className="en-language cursor-pointer"

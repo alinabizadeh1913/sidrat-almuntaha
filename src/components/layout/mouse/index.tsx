@@ -1,11 +1,11 @@
 "use client";
 
-import { useCursorLinesStore } from "@/store";
+import { useCursorEffectsStore } from "@/store";
 import { useEffect, useRef, useState } from "react";
 
 const MouseMove = () => {
   const mouseRef = useRef<HTMLDivElement | null>(null);
-  const { isCursorEffectsShow } = useCursorLinesStore();
+  const { isCursorEffectsShow } = useCursorEffectsStore();
   const [cursorType, setCursorType] = useState<
     "default" | "text" | "action" | "picture"
   >("default");
@@ -106,15 +106,18 @@ const MouseMove = () => {
         ref={mouseRef}
         className={`fixed ${
           cursorType == "text"
-            ? "bg-[#fff] mix-blend-difference"
+            ? "bg-[#fff] dark:bg-[#ffca81] mix-blend-difference"
             : cursorType == "default"
             ? "border-secondary"
             : cursorType == "picture"
             ? "backdrop-blur-md bg-[#ffffff09]"
             : "invisible opacity-0"
-        } w-[50px] h-[50px] top-0 left-0 rounded-full z-[2000] pointer-events-none flex justify-center duration-200 items-center ${
+        } w-[50px] h-[50px] top-0 left-0 rounded-full z-[2000] pointer-events-none flex justify-center items-center ${
           isCursorEffectsShow ? "hidden md:flex" : "hidden"
         }`}
+        style={{
+          transition: "transform 0.2s ease,background-color 0.2s ease",
+        }}
       >
         <div
           className={`bg-primary w-[8px] h-[8px] rounded-full ${

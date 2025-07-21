@@ -81,7 +81,7 @@ const Header = () => {
                   weight="regular"
                   lang={language}
                   delay={randomDuration + 1100}
-                  className={`text-tertiary text-center my-2 md:leading-[36px] lg:leading-[38px] xl:leading-[40px] ${
+                  className={`text-secondary text-center my-2 md:leading-[36px] lg:leading-[38px] xl:leading-[40px] ${
                     language == "en" ? "text-[19.5px] lg:text-[20.5px] xl:text-[21px]" : "text-[18px] lg:text-[18.5px] xl:text-[19px]"
                   }`}
                 >

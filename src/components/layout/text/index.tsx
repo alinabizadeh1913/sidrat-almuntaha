@@ -48,7 +48,7 @@ const GradientText = ({ children, weight, className, lang }: TextProps) => {
         <div
           className={`${className} gradient-text text-center ${
             lang == "fa" || lang == "ar"
-              ? `yekan-${weight} gradient-special`
+              ? `yekan-black gradient-special`
               : `tasaorbiter-${weight}`
           }`}
         >
@@ -57,7 +57,7 @@ const GradientText = ({ children, weight, className, lang }: TextProps) => {
         <div
           className={`${className} gradient-text-overlay text-overlay text-center ${
             lang == "fa" || lang == "ar"
-              ? `yekan-${weight} gradient-text-overlay-rtl gradient-special`
+              ? `yekan-black gradient-text-overlay-rtl gradient-special`
               : `tasaorbiter-${weight} gradient-text-overlay-ltr`
           }`}
         >

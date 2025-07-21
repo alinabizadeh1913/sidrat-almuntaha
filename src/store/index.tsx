@@ -58,7 +58,7 @@ const useHeaderStore = create<HeaderStore>((set) => ({
   setIsHeaderShow: (show) => set({ isHeaderShow: show }),
 }));
 
-const useCursorLinesStore = create<CursorEffectsStore>((set) => ({
+const useCursorEffectsStore = create<CursorEffectsStore>((set) => ({
   isCursorEffectsShow: true,
   setIsCursorEffectsShow: (show) => set({ isCursorEffectsShow: show }),
 }));
@@ -72,6 +72,6 @@ export {
   useStore,
   useLoadingStore,
   useHeaderStore,
-  useCursorLinesStore,
+  useCursorEffectsStore,
   useThemeStore,
 };

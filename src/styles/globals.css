@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-size: 0.85rem;
+  line-height: normal;
+}
+
 .text-primary {
   color: #181512;
 }
@@ -63,7 +72,7 @@
 }
 
 .dark .line-bg {
-  background: linear-gradient(to bottom, #f8c279, #ac8654, #151616);
+  background: linear-gradient(to bottom, #f8c279, #ac8654, #232014);
 }
 
 .button-hover .icon-wrapper {
@@ -153,12 +162,10 @@
 
 .yekan-bold {
   font-family: "fa-yekan-bakh-bold";
-  letter-spacing: -2.5px !important;
 }
 
 .yekan-regular {
   font-family: "fa-yekan-bakh-regular";
-  letter-spacing: -0.5px !important;
 }
 
 .tasaorbiter-bold {
@@ -167,16 +174,6 @@
 
 .tasaorbiter-regular {
   font-family: "en-tasaorbiter-regular";
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-* {
-  font-size: 0.85rem;
-  line-height: normal;
-  letter-spacing: 0px !important;
 }
 
 p {
@@ -411,13 +408,9 @@ body {
 
 .gradient-text {
   color: transparent;
-  background: linear-gradient(180deg, #1a1714, #9b9b9b);
+  background: linear-gradient(180deg, #090909, #7e7e7e);
   -webkit-background-clip: text;
   background-clip: text;
-}
-
-.gradient-text.gradient-special {
-  letter-spacing: -2px !important;
 }
 
 .dark .gradient-text {
@@ -429,10 +422,6 @@ body {
 
 .gradient-text-overlay-rtl {
   animation: textOverlayRtl 3.5s linear infinite;
-}
-
-.gradient-text-overlay-rtl.gradient-special {
-  letter-spacing: -2px !important;
 }
 
 .gradient-text-overlay-ltr {

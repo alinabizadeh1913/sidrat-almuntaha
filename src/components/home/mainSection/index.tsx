@@ -20,7 +20,7 @@ const MainSectionTitle = ({
           dark ? "gradient-text-dark" : "gradient-text"
         } text-center ${
           lang == "fa" || lang == "ar"
-            ? "yekan-bold main-section-title-rtl md:text-[30px] lg:text-[32px] xl:text-[34px]"
+            ? "yekan-black main-section-title-rtl md:text-[30px] lg:text-[32px] xl:text-[34px]"
             : "tasaorbiter-bold main-section-title-ltr md:text-[32px] lg:text-[34px] xl:text-[36px]"
         }`}
       >
@@ -28,7 +28,7 @@ const MainSectionTitle = ({
       </div>
       <div
         className={`gradient-text-overlay text-center ${
-          lang == "fa" || lang == "ar" ? "yekan-bold" : "tasaorbiter-bold"
+          lang == "fa" || lang == "ar" ? "yekan-black" : "tasaorbiter-bold"
         } ${
           active && lang == "en"
             ? "gradient-text-overlay-ltr main-section-title-ltr md:text-[32px] lg:text-[34px] xl:text-[36px]"
