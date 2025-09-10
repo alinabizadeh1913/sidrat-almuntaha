@@ -82,7 +82,7 @@ const HomeComponents = () => {
         <MobileFooter />
       </section>
 
-      <div className="noise bg-[#ffffff] dark:bg-[#110f07]" />
+      <div className="noise bg-[#ffffff] dark:bg-[#0d0b05]" />
 
       {/* <Grid dark={isDarkMode} /> */}
     </>

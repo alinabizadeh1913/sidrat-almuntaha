@@ -8,6 +8,7 @@ import MainNavBar from "./navbar";
 import { useLoadingStore } from "@/store";
 import MouseMove from "./mouse";
 import ContextMenu from "./menu";
+import Section from "./section";
 
 let rafId: number;
 function startLenis(lenis: Lenis) {
@@ -77,13 +78,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <>
+    <Section className="hidden md:block">
       <ContextMenu />
       <MouseMove />
       <Loading />
       <DirectionHandler />
       <MainNavBar />
       <main>{children}</main>
-    </>
+    </Section>
   );
 }
