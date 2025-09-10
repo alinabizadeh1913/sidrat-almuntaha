@@ -54,7 +54,7 @@ const HomeNavbar = ({
         <div className="w-full flex items-center justify-between pt-7 md:pt-6 lg:pt-7 relative">
           <div className="w-5/12 flex items-center">
             <div className="w-fit flex items-center gap-x-[16px]" data-cursor="action">
-              {/* <ChangeLanguage /> */}
+              <ChangeLanguage />
               <ChangeTheme />
               <SearchBox />
             </div>

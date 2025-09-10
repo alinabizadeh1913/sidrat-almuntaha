@@ -159,8 +159,7 @@ const ContextMenu = () => {
                   </MainText>
                 </div>
               )}
-
-              {/* <div
+              <div
                 className={`flex items-center justify-between p-3 hover:bg-[#3a3a3a] relative ${
                   linkHref ? "" : "rounded-tl-xl rounded-tr-xl"
                 }`}
@@ -238,64 +237,9 @@ const ContextMenu = () => {
                     </div>
                   </div>
                 </div>
-              </div> */}
-
-              <div
-                className={`flex items-center justify-between p-3 hover:bg-[#3a3a3a] relative ${
-                  linkHref ? "" : "rounded-tl-xl rounded-tr-xl"
-                }`}
-                id="back-wrapper"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  history.back();
-                }}
-              >
-                <div className="flex items-center">
-                  <div className="text-[#fff] w-[30px] flex justify-center items-center">
-                    {/* <ThemeIcon /> */}
-                  </div>
-                  <MainText
-                    lang="en"
-                    weight="regular"
-                    className="text-[#fff] ms-2"
-                  >
-                    Back
-                  </MainText>
-                </div>
-                <div className="flex items-center text-[#fff]">
-                  {/* <RightIcon /> */}
-                </div>
               </div>
               <div
-                className={`flex items-center justify-between p-3 hover:bg-[#3a3a3a] relative ${
-                  linkHref ? "" : "rounded-tl-xl rounded-tr-xl"
-                }`}
-                id="forward-wrapper"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  history.forward();
-                }}
-              >
-                <div className="flex items-center">
-                  <div className="text-[#fff] w-[30px] flex justify-center items-center">
-                    {/* <ThemeIcon /> */}
-                  </div>
-                  <MainText
-                    lang="en"
-                    weight="regular"
-                    className="text-[#fff] ms-2"
-                  >
-                    Forward
-                  </MainText>
-                </div>
-                <div className="flex items-center text-[#fff]">
-                  {/* <RightIcon /> */}
-                </div>
-              </div>
-              <div
-                className={`flex items-center justify-between p-3 hover:bg-[#3a3a3a] relative ${
-                  linkHref ? "" : "rounded-tl-xl rounded-tr-xl"
-                }`}
+                className={`flex items-center justify-between p-3 hover:bg-[#3a3a3a] relative`}
                 id="theme-wrapper"
                 onClick={() => setIsMenuOpen(false)}
               >
